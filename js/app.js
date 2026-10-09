@@ -468,10 +468,62 @@ function renderFooter() {
 }
 
 /**
- * 11. EVENTOS GLOBALES
+ * 11. EVENTOS GLOBALES Y MENÚ MÓVIL
  */
 function setupGlobalEvents() {
-  // Manejo de scroll suave en enlaces ancla
+  const hamburgerBtn = document.getElementById('nav-hamburger-btn');
+  const menuOverlay = document.getElementById('mobile-menu-overlay');
+
+  const closeMenu = () => {
+    if (!hamburgerBtn || !menuOverlay) return;
+    hamburgerBtn.classList.remove('is-active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    menuOverlay.classList.remove('is-open');
+    menuOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  const openMenu = () => {
+    if (!hamburgerBtn || !menuOverlay) return;
+    hamburgerBtn.classList.add('is-active');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    menuOverlay.classList.add('is-open');
+    menuOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  if (hamburgerBtn && menuOverlay) {
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menuOverlay.classList.contains('is-open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Cerrar al dar clic en el fondo oscuro
+    menuOverlay.addEventListener('click', (e) => {
+      if (e.target === menuOverlay) {
+        closeMenu();
+      }
+    });
+
+    // Cerrar al presionar tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Cerrar si la pantalla se redimensiona a escritorio
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 840) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Manejo de scroll suave en todos los enlaces ancla
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -479,6 +531,8 @@ function setupGlobalEvents() {
       const targetEl = document.querySelector(targetId);
       if (targetEl) {
         e.preventDefault();
+        // Si el menú móvil está abierto, cerrarlo
+        closeMenu();
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });

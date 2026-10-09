@@ -34,13 +34,35 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="#productos" class="btn btn-outline" style="display: none;" id="nav-shop-btn">Comprar</a>
         <a href="#" class="btn btn-whatsapp" id="nav-whatsapp-btn" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.201.3-.778.978-.954 1.179-.176.2-.352.226-.653.075-1.554-.778-2.56-1.385-3.568-3.11-.266-.457.266-.424.764-1.42.083-.17.042-.32-.021-.446-.063-.125-.678-1.633-.929-2.238-.244-.59-.493-.51-.678-.52-.176-.008-.377-.01-.578-.01-.2 0-.528.075-.804.376-.276.3-1.055 1.03-1.055 2.512 0 1.482 1.08 2.914 1.23 3.115.151.2 2.126 3.245 5.15 4.553 2.05.888 2.846.962 3.864.81 1.096-.164 2.378-.972 2.715-1.91.336-.938.336-1.742.236-1.91-.101-.168-.302-.268-.603-.418zM12 2C6.48 2 2 6.48 2 12c0 1.84.498 3.56 1.365 5.04L2 22l5.12-1.344C8.544 21.493 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
           </svg>
           <span>WhatsApp</span>
         </a>
+
+        <!-- Botón Menú Hamburguesa para Móviles -->
+        <button class="nav-hamburger" id="nav-hamburger-btn" aria-label="Abrir menú de navegación" aria-expanded="false" type="button">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true">
+      <div class="mobile-menu-container">
+        <ul class="mobile-nav-links">
+          <li><a href="#historia" class="mobile-nav-link">Historia</a></li>
+          <li><a href="#proceso" class="mobile-nav-link">Proceso</a></li>
+          <li><a href="#productos" class="mobile-nav-link">Nuestra Cosecha</a></li>
+          <li><a href="#tour-finca" class="mobile-nav-link">Tour por la Finca</a></li>
+          <li><a href="#faqs" class="mobile-nav-link">Preguntas Frecuentes</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+          <a href="#productos" class="btn btn-primary" style="width: 100%;" id="mobile-cta-btn">Ver Productos & Pedir</a>
+        </div>
       </div>
     </div>
   </header>
