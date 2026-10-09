@@ -61,7 +61,7 @@ export const siteConfig = {
     secondaryCtaText: "Reservar Tour en Finca",
     secondaryCtaTarget: "#tour-finca",
     heroImage: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80",
-    imageCaption: "Amanecer sobre los cafetales · Finca San Bernardo",
+    imageCaption: "Amanecer sobre los cafetales · Finca Orcasua",
     featuresPills: [
       { icon: "mountain", text: "1.700 msnm" },
       { icon: "award", text: "Puntaje SCA 86.5" },
@@ -87,7 +87,7 @@ export const siteConfig = {
       { value: "100%", label: "Trazabilidad de origen" }
     ],
     image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Don Bernardo seleccionando cerezas maduras de café"
+    imageCaption: "Selección tradicional de cerezas maduras de café en Finca Orcasua"
   },
 
   // 5. PROCESO DE PRODUCCIÓN (PASO A PASO)
@@ -203,7 +203,7 @@ export const siteConfig = {
     tag: "EXPERIENCIA VIVENCIAL",
     badge: "Abierto al Público con Reserva",
     title: "Tour Cafetero: La Ruta del Grano a la Taza",
-    subtitle: "Visita nuestra finca en Santa Rosa de Cabal. Camina entre cafetales centenarios, aprende a catar como un barista profesional y disfruta de la gastronomía campesina.",
+    subtitle: "Visita nuestra finca en Marsella, Risaralda. Camina entre cafetales centenarios, aprende a catar como un barista profesional y disfruta de la gastronomía campesina.",
     priceText: "$85.000 COP",
     priceUnit: "por persona",
     duration: "4 Horas de Inmersión",
@@ -222,7 +222,7 @@ export const siteConfig = {
       "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80"
     ],
-    whatsappBookingMessage: "¡Hola Finca San Bernardo! Me gustaría recibir información y consultar disponibilidad para reservar el Tour Cafetero 'Ruta del Grano a la Taza' para [indica número de personas] el día [indica fecha tentativa]. ¡Gracias!"
+    whatsappBookingMessage: "¡Hola Café Orcasua! Me gustaría recibir información y consultar disponibilidad para reservar el Tour Cafetero 'Ruta del Grano a la Taza' para [indica número de personas] el día [indica fecha tentativa]. ¡Gracias!"
   },
 
   // 8. GALERÍA MULTIMEDIA Y VIDEO
@@ -284,6 +284,6 @@ export const siteConfig = {
   // 10. PIE DE PÁGINA (FOOTER)
   footer: {
     copy: "© 2026 Café Orcasua. Cosechado con amor en las montañas de Colombia.",
-    madeFor: "EscoTools."
+    madeFor: "ByEscoTools"
   }
 };

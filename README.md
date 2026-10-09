@@ -1,6 +1,6 @@
-# 🌿 Escaparate & Landing Modular para Emprendedores de Origen
+# 🌿 Escaparate & Landing Modular para Emprendedores de Origen · ByEscoTools
 
-> **Demo:** Café de Especialidad en Montañas Colombianas (Finca San Bernardo)  
+> **Demo:** Café de Especialidad en Montañas Colombianas (Café Orcasua)  
 > **Estilo de Diseño:** Minimalismo cálido, editorial y artesanal (sin sobrecarga visual ni estilos artificiales de IA).  
 > **Conversión:** Catálogo interactivo con checkout directo y estructurado a WhatsApp + Sección de Servicios/Experiencias (Tour por la Finca).
 
@@ -69,7 +69,7 @@ En `config.js` configuras cada producto con sus variantes (gramajes o tamaños) 
 Cuando el cliente pulsa el botón **"Pedir"**, el sistema genera automáticamente un mensaje estructurado y abre WhatsApp:
 
 ```text
-¡Hola Café Finca San Bernardo! ☕
+¡Hola Café Orcasua! ☕
 Quiero realizar un pedido desde su sitio web:
 
 📦 Producto: Bourbon Rosado · Edición Especial
@@ -92,7 +92,7 @@ Puedes publicar este demo en menos de 2 minutos para mostrárselo a potenciales 
    ```bash
    npx vercel
    ```
-3. Te entregará una URL pública con certificado SSL gratuito (ejemplo: `finca-sanbernardo.vercel.app`).
+3. Te entregará una URL pública con certificado SSL gratuito (ejemplo: `cafe-orcasua.vercel.app`).
 
 ### Alternativas gratuitas:
 * **Netlify**: Arrastra la carpeta a [app.netlify.com/drop](https://app.netlify.com/drop) y queda en línea al instante.
@@ -102,10 +102,10 @@ Puedes publicar este demo en menos de 2 minutos para mostrárselo a potenciales 
 
 ## 🏷️ 4. Configuración de Dominio Propio para el Cliente Final
 
-Cuando el cliente apruebe la página y compre su dominio (ejemplo: `cafesanbernardo.com` o `.co` en DonDominio, GoDaddy o Namecheap):
+Cuando el cliente apruebe la página y compre su dominio (ejemplo: `cafeorcasua.com` o `.co` en DonDominio, GoDaddy o Namecheap):
 
 1. En el panel de **Vercel** o **Cloudflare Pages**, ve a **Settings > Domains**.
-2. Escribe el dominio del cliente (ej. `cafesanbernardo.com`).
+2. Escribe el dominio del cliente (ej. `cafeorcasua.com`).
 3. La plataforma te indicará dos registros DNS sencillos para poner en el registrador de dominio:
    * **Registro A:** Apuntando a la IP de Vercel (`76.76.21.21`).
    * **Registro CNAME:** `www` apuntando a `cname.vercel-dns.com`.

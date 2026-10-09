@@ -455,9 +455,12 @@ function renderFooter() {
   const footIg = document.getElementById('footer-ig');
   const footTk = document.getElementById('footer-tk');
 
+  const footMadeFor = document.getElementById('footer-made-for');
+
   if (footTitle) footTitle.textContent = siteConfig.brand.name;
   if (footDesc) footDesc.textContent = siteConfig.brand.tagline;
   if (footCopy) footCopy.textContent = siteConfig.footer.copy;
+  if (footMadeFor && siteConfig.footer.madeFor) footMadeFor.textContent = siteConfig.footer.madeFor;
   if (footLoc) footLoc.textContent = `${siteConfig.brand.location} (${siteConfig.brand.altitude})`;
 
   if (footIg) footIg.setAttribute('href', siteConfig.brand.socials.instagram);
