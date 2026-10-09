@@ -45,16 +45,16 @@ function applyThemeColors(theme) {
 function renderBrandAndNav() {
   const brandTitleEl = document.getElementById('nav-brand-title');
   const brandSubEl = document.getElementById('nav-brand-sub');
-  const navWaBtn = document.getElementById('nav-whatsapp-btn');
+  const floatingWaBtn = document.getElementById('floating-whatsapp-btn');
 
   if (brandTitleEl) brandTitleEl.textContent = siteConfig.brand.name;
   if (brandSubEl) brandSubEl.textContent = `${siteConfig.brand.altitude} · ${siteConfig.brand.location.split('—')[0]}`;
   
-  if (navWaBtn) {
+  if (floatingWaBtn) {
     const waUrl = `https://wa.me/${siteConfig.brand.whatsappNumber}?text=${encodeURIComponent(
-      `¡Hola! Estoy visitando la web de ${siteConfig.brand.name} y me gustaría recibir información.`
+      `¡Hola ${siteConfig.brand.name}! Estoy visitando su sitio web y me gustaría recibir información.`
     )}`;
-    navWaBtn.setAttribute('href', waUrl);
+    floatingWaBtn.setAttribute('href', waUrl);
   }
 }
 
