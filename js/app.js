@@ -480,23 +480,29 @@ function renderFAQs() {
  * 10. FOOTER
  */
 function renderFooter() {
+  const footLogo = document.getElementById('footer-brand-logo');
   const footTitle = document.getElementById('footer-brand-title');
   const footDesc = document.getElementById('footer-brand-desc');
   const footCopy = document.getElementById('footer-copy');
   const footLoc = document.getElementById('footer-location');
   const footIg = document.getElementById('footer-ig');
-  const footTk = document.getElementById('footer-tk');
-
   const footMadeFor = document.getElementById('footer-made-for');
 
-  if (footTitle) footTitle.textContent = siteConfig.brand.name;
+  if (footLogo && siteConfig.brand.logo) {
+    footLogo.src = siteConfig.brand.logo;
+    footLogo.alt = siteConfig.brand.name;
+  }
+
+  if (footTitle) footTitle.textContent = siteConfig.brand.shortName || siteConfig.brand.name;
   if (footDesc) footDesc.textContent = siteConfig.brand.tagline;
   if (footCopy) footCopy.textContent = siteConfig.footer.copy;
   if (footMadeFor && siteConfig.footer.madeFor) footMadeFor.textContent = siteConfig.footer.madeFor;
   if (footLoc) footLoc.textContent = `${siteConfig.brand.location} (${siteConfig.brand.altitude})`;
 
-  if (footIg) footIg.setAttribute('href', siteConfig.brand.socials.instagram);
-  if (footTk) footTk.setAttribute('href', siteConfig.brand.socials.tiktok);
+  if (footIg && siteConfig.brand.socials.instagram) {
+    footIg.setAttribute('href', siteConfig.brand.socials.instagram);
+    footIg.textContent = 'Instagram (@orcasua_cafe)';
+  }
 }
 
 /**

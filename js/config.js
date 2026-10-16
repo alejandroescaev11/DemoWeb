@@ -51,8 +51,7 @@ export const siteConfig = {
     altitude: "1.700 m.s.n.m.",
     whatsappNumber: "573105559876", // Número en formato internacional sin símbolos (ej: 57 + número)
     socials: {
-      instagram: "https://instagram.com",
-      tiktok: "https://tiktok.com",
+      instagram: "https://www.instagram.com/orcasua_cafe/",
       facebook: "https://facebook.com",
       googleMaps: "https://maps.google.com"
     }
@@ -120,8 +119,8 @@ export const siteConfig = {
         }
       ]
     },
-    image: "./assets/logo.jpg",
-    imageCaption: "Emblema Oficial Café Orcasua · Marsella, Risaralda"
+    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80",
+    imageCaption: "Tradición campesina cafetera · Finca Orcasua"
   },
 
   // 5. PROCESO DE PRODUCCIÓN (PASO A PASO)
