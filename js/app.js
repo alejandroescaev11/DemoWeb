@@ -33,8 +33,13 @@ function applyThemeColors(theme) {
   if (theme.accent) root.style.setProperty('--accent', theme.accent);
   if (theme.accentHover) root.style.setProperty('--accent-hover', theme.accentHover);
   if (theme.accentSoft) root.style.setProperty('--accent-soft', theme.accentSoft);
+  if (theme.goldBorder) root.style.setProperty('--gold-border', theme.goldBorder);
+  if (theme.cherryRed) root.style.setProperty('--cherry-red', theme.cherryRed);
+  if (theme.forestGreen) root.style.setProperty('--forest-green', theme.forestGreen);
   if (theme.border) root.style.setProperty('--border', theme.border);
   if (theme.borderLight) root.style.setProperty('--border-light', theme.borderLight);
+  if (theme.fontBrand) root.style.setProperty('--font-brand', theme.fontBrand);
+  if (theme.fontScript) root.style.setProperty('--font-script', theme.fontScript);
   if (theme.fontSerif) root.style.setProperty('--font-serif', theme.fontSerif);
   if (theme.fontSans) root.style.setProperty('--font-sans', theme.fontSans);
 }
@@ -44,10 +49,17 @@ function applyThemeColors(theme) {
  */
 function renderBrandAndNav() {
   const brandTitleEl = document.getElementById('nav-brand-title');
+  const brandScriptEl = document.getElementById('nav-brand-script');
+  const brandLogoEl = document.getElementById('nav-brand-logo');
   const brandSubEl = document.getElementById('nav-brand-sub');
   const floatingWaBtn = document.getElementById('floating-whatsapp-btn');
 
-  if (brandTitleEl) brandTitleEl.textContent = siteConfig.brand.name;
+  if (brandLogoEl && siteConfig.brand.logo) {
+    brandLogoEl.src = siteConfig.brand.logo;
+    brandLogoEl.alt = siteConfig.brand.name;
+  }
+  if (brandTitleEl) brandTitleEl.textContent = siteConfig.brand.shortName || siteConfig.brand.name;
+  if (brandScriptEl) brandScriptEl.textContent = siteConfig.brand.subtagline || 'Café Especial';
   if (brandSubEl) brandSubEl.textContent = `${siteConfig.brand.altitude} · ${siteConfig.brand.location.split('—')[0]}`;
   
   if (floatingWaBtn) {
@@ -119,6 +131,7 @@ function renderStory() {
   const storyStats = document.getElementById('story-stats');
   const storyImg = document.getElementById('story-img');
   const storyCaption = document.getElementById('story-caption');
+  const shieldPillarsEl = document.getElementById('story-shield-pillars');
 
   if (storyTag) storyTag.textContent = siteConfig.story.tag;
   if (storyTitle) storyTitle.textContent = siteConfig.story.title;
@@ -138,6 +151,25 @@ function renderStory() {
 
   if (storyImg) storyImg.src = siteConfig.story.image;
   if (storyCaption) storyCaption.textContent = siteConfig.story.imageCaption;
+
+  if (shieldPillarsEl && siteConfig.story.shieldPillars) {
+    const sp = siteConfig.story.shieldPillars;
+    shieldPillarsEl.innerHTML = `
+      <div class="shield-pillars-header">
+        <h3 class="shield-pillars-title font-brand">${sp.title}</h3>
+        <p class="shield-pillars-sub">${sp.subtitle}</p>
+      </div>
+      <div class="shield-pillars-grid">
+        ${sp.items.map(item => `
+          <div class="shield-pillar-card">
+            <span class="pillar-symbol">${item.symbol}</span>
+            <h4 class="pillar-title font-brand">${item.title}</h4>
+            <p class="pillar-desc">${item.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
 }
 
 /**

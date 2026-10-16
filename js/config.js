@@ -11,35 +11,42 @@
  */
 
 export const siteConfig = {
-  // 1. PALETA DE COLORES Y ESTILO VISUAL (Minimalista, cálido y editorial)
-  // Cambia estos códigos hexadecimales para cambiar toda la identidad sin dejar rastros del tema anterior.
+  // 1. PALETA DE COLORES Y ESTILO VISUAL (Basada en el Escudo Orcasua)
+  // Tonos pergamino lino, marrón tostado profundo, dorado bronce, verde esmeralda y cereza madura
   theme: {
+    fontBrand: "'Cinzel', 'Playfair Display', Georgia, serif",
+    fontScript: "'Alex Brush', cursive",
     fontSerif: "'Playfair Display', Georgia, serif",
     fontSans: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
     
-    // Tonos orgánicos y cálidos inspirados en café y tierra fértil
-    bgPrimary: "#FAF8F5",       // Fondo principal: Crema suave lino
-    bgSecondary: "#F3EDE6",     // Fondo secundario / secciones alternas
+    bgPrimary: "#FAF7F2",       // Fondo pergamino lino cálido idéntico al logo
+    bgSecondary: "#F3EBE0",     // Fondo secundario / secciones alternas
     bgCard: "#FFFFFF",          // Fondo de tarjetas y elementos elevados
     
-    textMain: "#221C18",        // Texto principal: Café espresso tostado oscuro (no negro puro para menor fatiga)
-    textMuted: "#6D645D",       // Texto secundario: Tono café arcilla suave
+    textMain: "#2A180E",        // Marrón café tostado profundo (idéntico a la tipografía ORCASUA)
+    textMuted: "#6B5545",       // Tono café arcilla suave
     
-    accent: "#96522E",          // Acento principal: Terracota tostado cálido
-    accentHover: "#7D4222",     // Hover de acento
-    accentSoft: "#F4EBE3",      // Fondo suave para insignias y resaltados
+    accent: "#B37A2B",          // Dorado / bronce cálido del marco del escudo
+    accentHover: "#935F1A",     // Hover de acento
+    accentSoft: "#F4EBD9",      // Fondo dorado suave para insignias y resaltados
     
-    border: "#E7DFD5",          // Bordes sutiles y elegantes
-    borderLight: "#F0EAE2",     // Divisores ultra-tenues
+    goldBorder: "#D4AF37",      // Dorado metálico de realce
+    cherryRed: "#A82222",       // Rojo cereza madura del logo
+    forestGreen: "#235028",     // Verde esmeralda de las montañas y hojas del escudo
     
-    success: "#3B5A38",         // Verde hoja de cafeto (para stock, confirmaciones)
+    border: "#E5DACB",          // Bordes sutiles y elegantes
+    borderLight: "#EFE6DA",     // Divisores ultra-tenues
+    
+    success: "#235028",         // Verde cafeto
   },
 
   // 2. DATOS DE MARCA Y CONTACTO
   brand: {
     name: "Café Orcasua",
     shortName: "Orcasua",
-    tagline: "Café premium 100% Colombiano",
+    logo: "./assets/logo.jpg",
+    subtagline: "Café Especial",
+    tagline: "Café de Especialidad · Origen Marsella, Risaralda",
     location: "Pinares de Marsella, Marsella, Risaralda — Colombia",
     altitude: "1.700 m.s.n.m.",
     whatsappNumber: "573105559876", // Número en formato internacional sin símbolos (ej: 57 + número)
@@ -55,39 +62,66 @@ export const siteConfig = {
   hero: {
     badge: "Cosecha Fresca 2026 · SUDÁN RUMÉ",
     title: "El alma de la montaña andina en cada taza.",
-    subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
+    subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
     primaryCtaText: "Ver Productos & Pedir",
     primaryCtaTarget: "#productos",
     secondaryCtaText: "Reservar Tour en Finca",
     secondaryCtaTarget: "#tour-finca",
-    heroImage: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80",
-    imageCaption: "Amanecer sobre los cafetales · Finca Orcasua",
+    heroImage: "./assets/logo.jpg",
+    heroLandscapeImage: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80",
+    imageCaption: "Escudo Oficial · Café Orcasua Especial",
     featuresPills: [
       { icon: "mountain", text: "1.700 msnm" },
       { icon: "award", text: "Puntaje SCA 86.5" },
       { icon: "leaf", text: "100% Variedad Arábica" },
-      { icon: "heart", text: "Comercio Justo Directo" }
+      { icon: "heart", text: "Comercio Justo Campesino" }
     ]
   },
 
   // 4. HISTORIA & ORIGEN (STORYTELLING)
   story: {
     enabled: true,
-    tag: "NUESTRA HISTORIA",
+    tag: "NUESTRA HISTORIA & ESCUDO",
     title: "Más que café: tres generaciones cuidando la tierra.",
     paragraphs: [
-      "En las laderas empinadas del Paisaje Cultural Cafetero, el viento fresco de la cordillera y los suelos volcánicos crean un microclima excepcional. Aquí madura lentamente cada fruto, concentrando azúcares naturales y aromas complejos.",
+      "En las laderas empinadas del Paisaje Cultural Cafetero de Marsella, el viento fresco de la cordillera y los suelos fértiles crean un microclima excepcional. Aquí madura lentamente cada fruto, concentrando azúcares naturales y aromas complejos.",
       "Cuidamos cada fase del camino: recolección grano a grano en su punto exacto de maduración, fermentación limpia con aguas de nacimiento propio y secado lento al sol andino en marquesinas tradicionales.",
-      "Al comprarnos directamente, apoyas a 12 familias campesinas y garantizas un precio transparente y digno, sin intermediarios."
+      "Al comprarnos directamente, apoyas a familias campesinas de Risaralda y garantizas un precio transparente y digno, sin intermediarios."
     ],
     stats: [
       { value: "3ra", label: "Generación de caficultores" },
-      { value: "1.850m", label: "Altitud de cultivo" },
+      { value: "1.700m", label: "Altitud de cultivo" },
       { value: "86.5", label: "Puntos en cata especial" },
       { value: "100%", label: "Trazabilidad de origen" }
     ],
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Selección tradicional de cerezas maduras de café en Finca Orcasua"
+    shieldPillars: {
+      title: "La Simbología de Nuestro Escudo",
+      subtitle: "Cada cuadrante de nuestro escudo representa un pilar sagrado de Café Orcasua:",
+      items: [
+        {
+          symbol: "☀️ Montañas y Sol",
+          title: "El Terroir Andino",
+          desc: "El sol naciente sobre la cordillera y el rocío de Marsella a 1.700 msnm."
+        },
+        {
+          symbol: "🌿 Granos y Flor",
+          title: "La Cosecha Viva",
+          desc: "Cerezas maduras y la flor blanca del cafeto que perfuma nuestros campos."
+        },
+        {
+          symbol: "☕ La Taza Servida",
+          title: "La Experiencia Sensorial",
+          desc: "Notas dulces a chocolate artesanal, miel silvestre y cuerpo aterciopelado."
+        },
+        {
+          symbol: "👨‍🌾 El Caficultor",
+          title: "Nuestra Gente",
+          desc: "Canasto al hombro y sombrero campesino: respeto y gratitud por quienes cultivan."
+        }
+      ]
+    },
+    image: "./assets/logo.jpg",
+    imageCaption: "Emblema Oficial Café Orcasua · Marsella, Risaralda"
   },
 
   // 5. PROCESO DE PRODUCCIÓN (PASO A PASO)

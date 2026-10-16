@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Café de Especialidad · Café Orcasua | Origen Colombia</title>
-  <meta name="description" content="Café especial cultivado a 1.700 msnm en las montañas colombianas. Cosecha artesanal, notas florales y de chocolate, envíos directos y tour en finca.">
+  <meta name="description" content="Café especial cultivado a 1.700 msnm en las montañas colombianas de Marsella, Risaralda. Cosecha artesanal, notas florales y de chocolate, envíos directos y tour en finca.">
+  <link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
 
-  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+  <!-- Google Fonts: Cinzel + Playfair Display + Alex Brush + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -19,8 +20,13 @@
   <header class="navbar">
     <div class="container nav-container">
       <a href="#" class="nav-brand">
-        <span class="nav-brand-title" id="nav-brand-title">Café Orcasua</span>
-        <span class="nav-brand-sub" id="nav-brand-sub">1.700 msnm · Marsella, Risaralda</span>
+        <div class="nav-brand-logo-frame">
+          <img src="./assets/logo.jpg" alt="Escudo Café Orcasua" class="nav-brand-logo" id="nav-brand-logo">
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title font-brand" id="nav-brand-title">ORCASUA</span>
+          <span class="nav-brand-script font-script" id="nav-brand-script">Café Especial</span>
+        </div>
       </a>
 
       <nav>
@@ -47,7 +53,7 @@
     <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true">
       <div class="mobile-menu-container">
         <ul class="mobile-nav-links">
-          <li><a href="#historia" class="mobile-nav-link">Historia</a></li>
+          <li><a href="#historia" class="mobile-nav-link">Historia & Escudo</a></li>
           <li><a href="#proceso" class="mobile-nav-link">Proceso</a></li>
           <li><a href="#productos" class="mobile-nav-link">Nuestra Cosecha</a></li>
           <li><a href="#tour-finca" class="mobile-nav-link">Tour por la Finca</a></li>
@@ -66,10 +72,20 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <span class="hero-badge" id="hero-badge">Cosecha Fresca 2026 · Lote Limitado</span>
-            <h1 class="hero-title" id="hero-title">El alma de la montaña andina en cada taza.</h1>
+            <span class="hero-badge" id="hero-badge">Cosecha Fresca 2026 · SUDÁN RUMÉ</span>
+            <h1 class="hero-title font-brand" id="hero-title">El alma de la montaña andina en cada taza.</h1>
+            
+            <!-- Divisor ornamental inspirado en el logo -->
+            <div class="brand-ornament">
+              <span class="ornament-line"></span>
+              <span class="ornament-leaf">🌿</span>
+              <span class="ornament-cherry">🍒</span>
+              <span class="ornament-leaf">🌿</span>
+              <span class="ornament-line"></span>
+            </div>
+
             <p class="hero-subtitle" id="hero-subtitle">
-              Cultivado con paciencia bajo sombra a 1.700 metros de altitud. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.
+              Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.
             </p>
             <div class="hero-cta-group">
               <a href="#productos" class="btn btn-primary" id="hero-primary-cta">Ver Productos & Pedir</a>
@@ -80,9 +96,9 @@
             </div>
           </div>
           <div class="hero-image-wrapper">
-            <div class="hero-image-frame">
-              <img id="hero-img" src="" alt="Cafetales de altura">
-              <div class="hero-image-caption" id="hero-caption">Amanecer sobre los cafetales · Finca Orcasua</div>
+            <div class="hero-shield-frame">
+              <img id="hero-img" src="./assets/logo.jpg" alt="Escudo Oficial Café Orcasua">
+              <div class="hero-image-caption" id="hero-caption">Escudo Oficial · Café Orcasua Especial</div>
             </div>
           </div>
         </div>
@@ -94,13 +110,13 @@
       <div class="container">
         <div class="story-grid">
           <div class="story-image-wrap">
-            <div class="story-image-frame">
-              <img id="story-img" src="" alt="Caficultor en finca">
+            <div class="story-image-frame shield-capsule-wrap">
+              <img id="story-img" src="./assets/logo.jpg" alt="Emblema Café Orcasua">
             </div>
           </div>
           <div class="story-content">
             <span class="section-tag" id="story-tag">NUESTRA HISTORIA</span>
-            <h2 class="section-title" id="story-title" style="text-align: left; margin-bottom: 1.5rem;">
+            <h2 class="section-title font-brand" id="story-title" style="text-align: left; margin-bottom: 1.5rem;">
               Más que café: tres generaciones cuidando la tierra.
             </h2>
             <div id="story-paragraphs">
@@ -110,6 +126,11 @@
               <!-- Renderizado dinámico de estadísticas -->
             </div>
           </div>
+        </div>
+
+        <!-- Explicación de los 4 cuadrantes del Escudo -->
+        <div class="story-shield-pillars" id="story-shield-pillars">
+          <!-- Renderizado dinámico de los cuadrantes -->
         </div>
       </div>
     </section>
@@ -247,10 +268,18 @@
   <footer class="footer-section" id="contacto">
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <h3 class="footer-brand-title" id="footer-brand-title">Café Orcasua</h3>
+        <div class="footer-brand-box">
+          <div class="footer-logo-row">
+            <div class="footer-brand-logo-frame">
+              <img src="./assets/logo.jpg" alt="Logo Café Orcasua" class="footer-brand-logo" id="footer-brand-logo">
+            </div>
+            <div class="footer-brand-text">
+              <h3 class="footer-brand-title font-brand" id="footer-brand-title">ORCASUA</h3>
+              <span class="footer-brand-script font-script">Café Especial</span>
+            </div>
+          </div>
           <p class="footer-brand-desc" id="footer-brand-desc">
-            Café premium 100% Colombiano. Cultivado con orgullo y respeto por la tierra.
+            Café de Especialidad · Origen Marsella, Risaralda. Cultivado con orgullo y respeto por la tierra.
           </p>
         </div>
 
