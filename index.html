@@ -31,15 +31,22 @@
 
       <nav>
         <ul class="nav-links">
-          <li><a href="#historia" class="nav-link">Historia</a></li>
-          <li><a href="#proceso" class="nav-link">Proceso</a></li>
-          <li><a href="#productos" class="nav-link">Nuestra Cosecha</a></li>
-          <li><a href="#tour-finca" class="nav-link">Tour por la Finca</a></li>
-          <li><a href="#faqs" class="nav-link">Preguntas</a></li>
+          <li><a href="#historia" class="nav-link" id="nav-link-story">Historia</a></li>
+          <li><a href="#proceso" class="nav-link" id="nav-link-process">Proceso</a></li>
+          <li><a href="#productos" class="nav-link" id="nav-link-products">Nuestra Cosecha</a></li>
+          <li><a href="#tour-finca" class="nav-link" id="nav-link-tour">Tour por la Finca</a></li>
+          <li><a href="#faqs" class="nav-link" id="nav-link-faqs">Preguntas</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
+        <!-- Selector de Idioma (ES / EN) -->
+        <div class="lang-switcher" aria-label="Cambiar idioma / Switch language">
+          <button type="button" class="lang-btn active" data-lang="es">ES</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
         <!-- Botón Menú Hamburguesa para Móviles -->
         <button class="nav-hamburger" id="nav-hamburger-btn" aria-label="Abrir menú de navegación" aria-expanded="false" type="button">
           <span class="hamburger-line"></span>
@@ -53,12 +60,22 @@
     <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true">
       <div class="mobile-menu-container">
         <ul class="mobile-nav-links">
-          <li><a href="#historia" class="mobile-nav-link">Historia & Escudo</a></li>
-          <li><a href="#proceso" class="mobile-nav-link">Proceso</a></li>
-          <li><a href="#productos" class="mobile-nav-link">Nuestra Cosecha</a></li>
-          <li><a href="#tour-finca" class="mobile-nav-link">Tour por la Finca</a></li>
-          <li><a href="#faqs" class="mobile-nav-link">Preguntas Frecuentes</a></li>
+          <li><a href="#historia" class="mobile-nav-link" id="mob-link-story">Historia & Escudo</a></li>
+          <li><a href="#proceso" class="mobile-nav-link" id="mob-link-process">Proceso</a></li>
+          <li><a href="#productos" class="mobile-nav-link" id="mob-link-products">Nuestra Cosecha</a></li>
+          <li><a href="#tour-finca" class="mobile-nav-link" id="mob-link-tour">Tour por la Finca</a></li>
+          <li><a href="#faqs" class="mobile-nav-link" id="mob-link-faqs">Preguntas Frecuentes</a></li>
         </ul>
+
+        <!-- Selector de Idioma en Móvil -->
+        <div class="mobile-lang-row">
+          <span class="mobile-lang-title">Idioma / Language</span>
+          <div class="lang-switcher-mobile">
+            <button type="button" class="lang-btn-pill active" data-lang="es">Español (ES)</button>
+            <button type="button" class="lang-btn-pill" data-lang="en">English (EN)</button>
+          </div>
+        </div>
+
         <div class="mobile-menu-cta">
           <a href="#productos" class="btn btn-primary" style="width: 100%;" id="mobile-cta-btn">Ver Productos & Pedir</a>
         </div>
@@ -186,7 +203,7 @@
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <div>
-                    <div class="tour-meta-label">Duración</div>
+                    <div class="tour-meta-label" id="tour-duration-label">Duración</div>
                     <div class="tour-meta-val" id="tour-duration">4 Horas</div>
                   </div>
                 </div>
@@ -199,13 +216,13 @@
                     <line x1="3" y1="10" x2="21" y2="10"></line>
                   </svg>
                   <div>
-                    <div class="tour-meta-label">Días Disponibles</div>
+                    <div class="tour-meta-label" id="tour-schedule-label">Días Disponibles</div>
                     <div class="tour-meta-val" id="tour-schedule">Viernes a Domingo</div>
                   </div>
                 </div>
               </div>
 
-              <div class="tour-includes-title">La experiencia incluye:</div>
+              <div class="tour-includes-title" id="tour-includes-title">La experiencia incluye:</div>
               <ul class="tour-includes-list" id="tour-includes-list">
                 <!-- Renderizado dinámico de inclusiones -->
               </ul>
@@ -219,7 +236,7 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.201.3-.778.978-.954 1.179-.176.2-.352.226-.653.075-1.554-.778-2.56-1.385-3.568-3.11-.266-.457.266-.424.764-1.42.083-.17.042-.32-.021-.446-.063-.125-.678-1.633-.929-2.238-.244-.59-.493-.51-.678-.52-.176-.008-.377-.01-.578-.01-.2 0-.528.075-.804.376-.276.3-1.055 1.03-1.055 2.512 0 1.482 1.08 2.914 1.23 3.115.151.2 2.126 3.245 5.15 4.553 2.05.888 2.846.962 3.864.81 1.096-.164 2.378-.972 2.715-1.91.336-.938.336-1.742.236-1.91-.101-.168-.302-.268-.603-.418zM12 2C6.48 2 2 6.48 2 12c0 1.84.498 3.56 1.365 5.04L2 22l5.12-1.344C8.544 21.493 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
                   </svg>
-                  Reservar Cupo
+                  <span id="tour-book-btn-text">Reservar Cupo</span>
                 </a>
               </div>
             </div>
@@ -284,16 +301,16 @@
         </div>
 
         <div>
-          <h4 class="footer-title">Ubicación & Contacto</h4>
+          <h4 class="footer-title" id="footer-loc-title">Ubicación & Contacto</h4>
           <ul class="footer-links">
             <li id="footer-location">Pinares de Marsella, Marsella, Risaralda</li>
-            <li>Envíos a toda Colombia</li>
-            <li>Pedidos y reservas vía WhatsApp</li>
+            <li id="footer-shipping">Envíos a toda Colombia</li>
+            <li id="footer-orders">Pedidos y reservas vía WhatsApp</li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-title">Redes Sociales</h4>
+          <h4 class="footer-title" id="footer-socials-title">Redes Sociales</h4>
           <ul class="footer-links">
             <li><a id="footer-ig" href="https://www.instagram.com/orcasua_cafe/" target="_blank" rel="noopener">Instagram (@orcasua_cafe)</a></li>
           </ul>
@@ -312,7 +329,7 @@
     <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.201.3-.778.978-.954 1.179-.176.2-.352.226-.653.075-1.554-.778-2.56-1.385-3.568-3.11-.266-.457.266-.424.764-1.42.083-.17.042-.32-.021-.446-.063-.125-.678-1.633-.929-2.238-.244-.59-.493-.51-.678-.52-.176-.008-.377-.01-.578-.01-.2 0-.528.075-.804.376-.276.3-1.055 1.03-1.055 2.512 0 1.482 1.08 2.914 1.23 3.115.151.2 2.126 3.245 5.15 4.553 2.05.888 2.846.962 3.864.81 1.096-.164 2.378-.972 2.715-1.91.336-.938.336-1.742.236-1.91-.101-.168-.302-.268-.603-.418zM12 2C6.48 2 2 6.48 2 12c0 1.84.498 3.56 1.365 5.04L2 22l5.12-1.344C8.544 21.493 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
     </svg>
-    <span class="floating-whatsapp-tooltip">¿Deseas pedir o tienes dudas? Escríbenos</span>
+    <span class="floating-whatsapp-tooltip" id="floating-whatsapp-tooltip">¿Deseas pedir o tienes dudas? Escríbenos</span>
   </a>
 
   <!-- Script modular de configuración y lógica -->

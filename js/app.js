@@ -1,21 +1,76 @@
 import { siteConfig } from './config.js';
+import { translations } from './translations.js';
+
+/**
+ * ESTADO GLOBAL DE IDIOMA
+ * 'es' = Español (por defecto) | 'en' = English
+ */
+let currentLang = 'es';
+const savedLang = localStorage.getItem('orcasua_lang');
+if (savedLang === 'en' || savedLang === 'es') {
+  currentLang = savedLang;
+}
 
 /**
  * INICIALIZADOR DE LA APLICACIÓN
  */
 document.addEventListener('DOMContentLoaded', () => {
   applyThemeColors(siteConfig.theme);
-  renderBrandAndNav();
-  renderHero();
-  renderStory();
-  renderProcess();
-  renderProducts();
-  renderServicesTour();
-  renderGallery();
-  renderFAQs();
-  renderFooter();
+  setLanguage(currentLang, false);
   setupGlobalEvents();
 });
+
+/**
+ * CAMBIO DE IDIOMA DINÁMICO
+ * Actualiza el DOM instantáneamente sin recarga y persiste la preferencia.
+ */
+function setLanguage(lang, persist = true) {
+  if (lang !== 'es' && lang !== 'en') return;
+  currentLang = lang;
+  if (persist) {
+    try {
+      localStorage.setItem('orcasua_lang', lang);
+    } catch {
+      // Ignorar errores en modo incógnito estricto
+    }
+  }
+
+  // Atributo de idioma en el documento
+  document.documentElement.lang = lang;
+
+  // Actualizar título de la página
+  if (lang === 'en') {
+    document.title = "Specialty Coffee · Café Orcasua | Colombian Origin";
+  } else {
+    document.title = "Café de Especialidad · Café Orcasua | Origen Colombia";
+  }
+
+  // Actualizar botones de idioma (activo)
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  document.querySelectorAll('.lang-btn-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  const t = translations[lang] || translations.es;
+  renderAll(t);
+}
+
+/**
+ * RENDERIZADO GLOBAL DE TODAS LAS SECCIONES
+ */
+function renderAll(t) {
+  renderBrandAndNav(t);
+  renderHero(t);
+  renderStory(t);
+  renderProcess(t);
+  renderProducts(t);
+  renderServicesTour(t);
+  renderGallery(t);
+  renderFAQs(t);
+  renderFooter(t);
+}
 
 /**
  * 1. APLICACIÓN DE COLORES DINÁMICOS
@@ -47,25 +102,54 @@ function applyThemeColors(theme) {
 /**
  * 2. NAVEGACIÓN Y MARCA
  */
-function renderBrandAndNav() {
+function renderBrandAndNav(t) {
   const brandTitleEl = document.getElementById('nav-brand-title');
   const brandScriptEl = document.getElementById('nav-brand-script');
   const brandLogoEl = document.getElementById('nav-brand-logo');
-  const brandSubEl = document.getElementById('nav-brand-sub');
-  const floatingWaBtn = document.getElementById('floating-whatsapp-btn');
 
   if (brandLogoEl && siteConfig.brand.logo) {
     brandLogoEl.src = siteConfig.brand.logo;
     brandLogoEl.alt = siteConfig.brand.name;
   }
   if (brandTitleEl) brandTitleEl.textContent = siteConfig.brand.shortName || siteConfig.brand.name;
-  if (brandScriptEl) brandScriptEl.textContent = siteConfig.brand.subtagline || 'Café Especial';
-  if (brandSubEl) brandSubEl.textContent = `${siteConfig.brand.altitude} · ${siteConfig.brand.location.split('—')[0]}`;
-  
+  if (brandScriptEl) brandScriptEl.textContent = t.brand.subtagline;
+
+  // Enlaces de navegación de escritorio
+  const storyLink = document.getElementById('nav-link-story');
+  const processLink = document.getElementById('nav-link-process');
+  const productsLink = document.getElementById('nav-link-products');
+  const tourLink = document.getElementById('nav-link-tour');
+  const faqsLink = document.getElementById('nav-link-faqs');
+
+  if (storyLink) storyLink.textContent = t.nav.story;
+  if (processLink) processLink.textContent = t.nav.process;
+  if (productsLink) productsLink.textContent = t.nav.products;
+  if (tourLink) tourLink.textContent = t.nav.tour;
+  if (faqsLink) faqsLink.textContent = t.nav.faqs;
+
+  // Enlaces de navegación móvil
+  const mobStory = document.getElementById('mob-link-story');
+  const mobProcess = document.getElementById('mob-link-process');
+  const mobProducts = document.getElementById('mob-link-products');
+  const mobTour = document.getElementById('mob-link-tour');
+  const mobFaqs = document.getElementById('mob-link-faqs');
+  const mobCta = document.getElementById('mobile-cta-btn');
+
+  if (mobStory) mobStory.textContent = t.nav.story;
+  if (mobProcess) mobProcess.textContent = t.nav.process;
+  if (mobProducts) mobProducts.textContent = t.nav.products;
+  if (mobTour) mobTour.textContent = t.nav.tour;
+  if (mobFaqs) mobFaqs.textContent = t.nav.faqs;
+  if (mobCta) mobCta.textContent = t.nav.mobileCta;
+
+  // Botón flotante de WhatsApp inferior derecho
+  const floatingWaBtn = document.getElementById('floating-whatsapp-btn');
+  const floatingTooltip = document.getElementById('floating-whatsapp-tooltip');
+  if (floatingTooltip) {
+    floatingTooltip.textContent = t.floatingWhatsapp.tooltip;
+  }
   if (floatingWaBtn) {
-    const waUrl = `https://wa.me/${siteConfig.brand.whatsappNumber}?text=${encodeURIComponent(
-      `¡Hola ${siteConfig.brand.name}! Estoy visitando su sitio web y me gustaría recibir información.`
-    )}`;
+    const waUrl = `https://wa.me/${siteConfig.brand.whatsappNumber}?text=${encodeURIComponent(t.floatingWhatsapp.chatGreeting)}`;
     floatingWaBtn.setAttribute('href', waUrl);
   }
 }
@@ -73,7 +157,7 @@ function renderBrandAndNav() {
 /**
  * 3. HERO (PORTADA)
  */
-function renderHero() {
+function renderHero(t) {
   const heroBadge = document.getElementById('hero-badge');
   const heroTitle = document.getElementById('hero-title');
   const heroSubtitle = document.getElementById('hero-subtitle');
@@ -83,17 +167,17 @@ function renderHero() {
   const heroCaption = document.getElementById('hero-caption');
   const heroFeatures = document.getElementById('hero-features');
 
-  if (heroBadge) heroBadge.textContent = siteConfig.hero.badge;
-  if (heroTitle) heroTitle.textContent = siteConfig.hero.title;
-  if (heroSubtitle) heroSubtitle.textContent = siteConfig.hero.subtitle;
+  if (heroBadge) heroBadge.textContent = t.hero.badge;
+  if (heroTitle) heroTitle.textContent = t.hero.title;
+  if (heroSubtitle) heroSubtitle.textContent = t.hero.subtitle;
 
   if (heroPrimaryCta) {
-    heroPrimaryCta.textContent = siteConfig.hero.primaryCtaText;
+    heroPrimaryCta.textContent = t.hero.primaryCta;
     heroPrimaryCta.setAttribute('href', siteConfig.hero.primaryCtaTarget);
   }
 
   if (heroSecondaryCta) {
-    heroSecondaryCta.textContent = siteConfig.hero.secondaryCtaText;
+    heroSecondaryCta.textContent = t.hero.secondaryCta;
     heroSecondaryCta.setAttribute('href', siteConfig.hero.secondaryCtaTarget);
   }
 
@@ -101,10 +185,10 @@ function renderHero() {
     heroImg.src = siteConfig.hero.heroImage;
     heroImg.alt = siteConfig.brand.name;
   }
-  if (heroCaption) heroCaption.textContent = siteConfig.hero.imageCaption;
+  if (heroCaption) heroCaption.textContent = t.hero.caption;
 
-  if (heroFeatures && siteConfig.hero.featuresPills) {
-    heroFeatures.innerHTML = siteConfig.hero.featuresPills.map(f => `
+  if (heroFeatures && t.hero.pills) {
+    heroFeatures.innerHTML = t.hero.pills.map(f => `
       <div class="hero-feature-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"></polyline>
@@ -118,7 +202,7 @@ function renderHero() {
 /**
  * 4. HISTORIA & ORIGEN (STORYTELLING)
  */
-function renderStory() {
+function renderStory(t) {
   const storySec = document.getElementById('historia');
   if (!siteConfig.story.enabled) {
     if (storySec) storySec.style.display = 'none';
@@ -130,18 +214,17 @@ function renderStory() {
   const storyParas = document.getElementById('story-paragraphs');
   const storyStats = document.getElementById('story-stats');
   const storyImg = document.getElementById('story-img');
-  const storyCaption = document.getElementById('story-caption');
   const shieldPillarsEl = document.getElementById('story-shield-pillars');
 
-  if (storyTag) storyTag.textContent = siteConfig.story.tag;
-  if (storyTitle) storyTitle.textContent = siteConfig.story.title;
+  if (storyTag) storyTag.textContent = t.story.tag;
+  if (storyTitle) storyTitle.textContent = t.story.title;
 
-  if (storyParas) {
-    storyParas.innerHTML = siteConfig.story.paragraphs.map(p => `<p>${p}</p>`).join('');
+  if (storyParas && t.story.paragraphs) {
+    storyParas.innerHTML = t.story.paragraphs.map(p => `<p>${p}</p>`).join('');
   }
 
-  if (storyStats && siteConfig.story.stats) {
-    storyStats.innerHTML = siteConfig.story.stats.map(s => `
+  if (storyStats && t.story.stats) {
+    storyStats.innerHTML = t.story.stats.map(s => `
       <div class="stat-item">
         <span class="stat-value">${s.value}</span>
         <span class="stat-label">${s.label}</span>
@@ -149,11 +232,13 @@ function renderStory() {
     `).join('');
   }
 
-  if (storyImg) storyImg.src = siteConfig.story.image;
-  if (storyCaption) storyCaption.textContent = siteConfig.story.imageCaption;
+  if (storyImg) {
+    storyImg.src = siteConfig.story.image;
+    storyImg.alt = t.story.imageCaption || siteConfig.brand.name;
+  }
 
-  if (shieldPillarsEl && siteConfig.story.shieldPillars) {
-    const sp = siteConfig.story.shieldPillars;
+  if (shieldPillarsEl && t.story.shieldPillars) {
+    const sp = t.story.shieldPillars;
     shieldPillarsEl.innerHTML = `
       <div class="shield-pillars-header">
         <h3 class="shield-pillars-title font-brand">${sp.title}</h3>
@@ -175,7 +260,7 @@ function renderStory() {
 /**
  * 5. PROCESO DE PRODUCCIÓN
  */
-function renderProcess() {
+function renderProcess(t) {
   const processSec = document.getElementById('proceso');
   if (!siteConfig.process.enabled) {
     if (processSec) processSec.style.display = 'none';
@@ -187,21 +272,25 @@ function renderProcess() {
   const subEl = document.getElementById('process-subtitle');
   const gridEl = document.getElementById('process-grid');
 
-  if (tagEl) tagEl.textContent = siteConfig.process.tag;
-  if (titleEl) titleEl.textContent = siteConfig.process.title;
-  if (subEl) subEl.textContent = siteConfig.process.subtitle;
+  if (tagEl) tagEl.textContent = t.process.tag;
+  if (titleEl) titleEl.textContent = t.process.title;
+  if (subEl) subEl.textContent = t.process.subtitle;
 
-  if (gridEl && siteConfig.process.steps) {
-    gridEl.innerHTML = siteConfig.process.steps.map(step => `
-      <div class="process-card">
-        <div class="process-img">
-          <img src="${step.image}" alt="${step.title}" loading="lazy">
+  if (gridEl && t.process.steps) {
+    gridEl.innerHTML = t.process.steps.map((step, idx) => {
+      const configStep = siteConfig.process.steps[idx] || {};
+      const stepImg = configStep.image || '';
+      return `
+        <div class="process-card">
+          <div class="process-img">
+            <img src="${stepImg}" alt="${step.title}" loading="lazy">
+          </div>
+          <div class="process-num">${step.number}</div>
+          <h3 class="process-title">${step.title}</h3>
+          <p class="process-desc">${step.description}</p>
         </div>
-        <div class="process-num">${step.number}</div>
-        <h3 class="process-title">${step.title}</h3>
-        <p class="process-desc">${step.description}</p>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 }
 
@@ -216,7 +305,7 @@ function formatCOP(amount) {
   }).format(amount);
 }
 
-function renderProducts() {
+function renderProducts(t) {
   const prodSec = document.getElementById('productos');
   if (!siteConfig.products.enabled) {
     if (prodSec) prodSec.style.display = 'none';
@@ -228,17 +317,21 @@ function renderProducts() {
   const subEl = document.getElementById('products-subtitle');
   const gridEl = document.getElementById('products-grid');
 
-  if (tagEl) tagEl.textContent = siteConfig.products.tag;
-  if (titleEl) titleEl.textContent = siteConfig.products.title;
-  if (subEl) subEl.textContent = siteConfig.products.subtitle;
+  if (tagEl) tagEl.textContent = t.products.tag;
+  if (titleEl) titleEl.textContent = t.products.title;
+  if (subEl) subEl.textContent = t.products.subtitle;
 
-  if (gridEl && siteConfig.products.items) {
-    gridEl.innerHTML = siteConfig.products.items.map(product => {
-      const defaultVariant = product.variants[0];
+  const ui = t.products.ui;
+
+  if (gridEl && t.products.items) {
+    gridEl.innerHTML = t.products.items.map(product => {
+      const baseProduct = siteConfig.products.items.find(p => p.id === product.id) || siteConfig.products.items[0];
+      const defaultVariant = baseProduct.variants[0];
+
       return `
         <article class="product-card" id="card-${product.id}" data-product-id="${product.id}">
           <div class="product-image-container">
-            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            <img src="${baseProduct.image}" alt="${product.name}" loading="lazy">
             ${product.badge ? `<span class="product-badge-overlay">${product.badge}</span>` : ''}
           </div>
           <div class="product-body">
@@ -251,9 +344,9 @@ function renderProducts() {
 
             <div class="product-configurator">
               <div class="config-group">
-                <span class="config-label">Presentación</span>
+                <span class="config-label">${ui.presentation}</span>
                 <div class="variant-pills" id="variants-${product.id}">
-                  ${product.variants.map((v, idx) => `
+                  ${baseProduct.variants.map((v, idx) => `
                     <button type="button" 
                       class="variant-pill-btn ${idx === 0 ? 'active' : ''}" 
                       data-product-id="${product.id}" 
@@ -266,9 +359,9 @@ function renderProducts() {
               </div>
 
               <div class="config-group">
-                <label class="config-label" for="grind-${product.id}">Tipo de Molienda</label>
+                <label class="config-label" for="grind-${product.id}">${ui.grind}</label>
                 <select class="config-select" id="grind-${product.id}">
-                  ${product.grindOptions.map(g => `<option value="${g}">${g}</option>`).join('')}
+                  ${t.products.grindOptions.map(g => `<option value="${g}">${g}</option>`).join('')}
                 </select>
               </div>
             </div>
@@ -276,13 +369,13 @@ function renderProducts() {
             <div class="product-footer">
               <div class="price-display">
                 <span class="price-amount" id="price-display-${product.id}">${formatCOP(defaultVariant.priceCOP)}</span>
-                <span class="price-subtitle">Envío a toda Colombia</span>
+                <span class="price-subtitle">${ui.shippingNote}</span>
               </div>
               <button type="button" class="btn btn-whatsapp order-btn" data-product-id="${product.id}">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.201.3-.778.978-.954 1.179-.176.2-.352.226-.653.075-1.554-.778-2.56-1.385-3.568-3.11-.266-.457.266-.424.764-1.42.083-.17.042-.32-.021-.446-.063-.125-.678-1.633-.929-2.238-.244-.59-.493-.51-.678-.52-.176-.008-.377-.01-.578-.01-.2 0-.528.075-.804.376-.276.3-1.055 1.03-1.055 2.512 0 1.482 1.08 2.914 1.23 3.115.151.2 2.126 3.245 5.15 4.553 2.05.888 2.846.962 3.864.81 1.096-.164 2.378-.972 2.715-1.91.336-.938.336-1.742.236-1.91-.101-.168-.302-.268-.603-.418zM12 2C6.48 2 2 6.48 2 12c0 1.84.498 3.56 1.365 5.04L2 22l5.12-1.344C8.544 21.493 10.22 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
                 </svg>
-                Pedir
+                <span>${ui.orderBtn}</span>
               </button>
             </div>
           </div>
@@ -294,12 +387,13 @@ function renderProducts() {
     gridEl.querySelectorAll('.variant-pill-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const prodId = e.currentTarget.dataset.productId;
-        const size = e.currentTarget.dataset.size;
         const price = parseInt(e.currentTarget.dataset.price, 10);
 
         // Actualizar clase activa
         const container = document.getElementById(`variants-${prodId}`);
-        container.querySelectorAll('.variant-pill-btn').forEach(b => b.classList.remove('active'));
+        if (container) {
+          container.querySelectorAll('.variant-pill-btn').forEach(b => b.classList.remove('active'));
+        }
         e.currentTarget.classList.add('active');
 
         // Actualizar precio mostrado
@@ -319,29 +413,32 @@ function renderProducts() {
 }
 
 /**
- * GENERADOR DE PEDIDO A WHATSAPP
+ * GENERADOR DE PEDIDO A WHATSAPP MULTI-IDIOMA
  */
 function handleProductOrder(productId) {
-  const product = siteConfig.products.items.find(p => p.id === productId);
-  if (!product) return;
+  const t = translations[currentLang] || translations.es;
+  const prodTranslated = t.products.items.find(p => p.id === productId);
+  const baseProduct = siteConfig.products.items.find(p => p.id === productId);
+  if (!prodTranslated || !baseProduct) return;
 
   const activeVariantBtn = document.querySelector(`#variants-${productId} .variant-pill-btn.active`);
-  const selectedSize = activeVariantBtn ? activeVariantBtn.dataset.size : product.variants[0].size;
-  const selectedPrice = activeVariantBtn ? parseInt(activeVariantBtn.dataset.price, 10) : product.variants[0].priceCOP;
+  const selectedSize = activeVariantBtn ? activeVariantBtn.dataset.size : baseProduct.variants[0].size;
+  const selectedPrice = activeVariantBtn ? parseInt(activeVariantBtn.dataset.price, 10) : baseProduct.variants[0].priceCOP;
 
   const grindSelect = document.getElementById(`grind-${productId}`);
-  const selectedGrind = grindSelect ? grindSelect.value : 'En Grano';
+  const selectedGrind = grindSelect ? grindSelect.value : t.products.grindOptions[0];
 
+  const om = t.orderMessage;
   const message = [
-    `¡Hola ${siteConfig.brand.name}! ☕`,
-    `Quiero realizar un pedido desde su sitio web:`,
-    ``,
-    `📦 *Producto:* ${product.name}`,
-    `⚖️ *Presentación:* ${selectedSize}`,
-    `⚙️ *Molienda:* ${selectedGrind}`,
-    `💵 *Valor:* ${formatCOP(selectedPrice)}`,
-    ``,
-    `¿Me confirman disponibilidad y los datos para realizar el pago y envío? ¡Muchas gracias!`
+    om.greeting,
+    om.intro,
+    '',
+    `📦 *${om.prodLabel}:* ${prodTranslated.name}`,
+    `⚖️ *${om.sizeLabel}:* ${selectedSize}`,
+    `⚙️ *${om.grindLabel}:* ${selectedGrind}`,
+    `💵 *${om.priceLabel}:* ${formatCOP(selectedPrice)}`,
+    '',
+    om.closing
   ].join('\n');
 
   const waUrl = `https://wa.me/${siteConfig.brand.whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -351,30 +448,37 @@ function handleProductOrder(productId) {
 /**
  * 7. SECCIÓN MODULAR: TOUR POR LA FINCA / SERVICIO PERSONALIZADO
  */
-function renderServicesTour() {
+function renderServicesTour(t) {
   const tourSec = document.getElementById('tour-finca');
   if (!siteConfig.services || !siteConfig.services.enabled) {
     if (tourSec) tourSec.style.display = 'none';
     return;
   }
 
-  const s = siteConfig.services;
+  const s = t.services;
   const badgeEl = document.getElementById('tour-badge');
   const titleEl = document.getElementById('tour-title');
   const subEl = document.getElementById('tour-subtitle');
+  const durationLabelEl = document.getElementById('tour-duration-label');
   const durationEl = document.getElementById('tour-duration');
+  const scheduleLabelEl = document.getElementById('tour-schedule-label');
   const scheduleEl = document.getElementById('tour-schedule');
+  const includesTitleEl = document.getElementById('tour-includes-title');
   const includesListEl = document.getElementById('tour-includes-list');
   const priceEl = document.getElementById('tour-price');
   const unitEl = document.getElementById('tour-unit');
   const bookBtn = document.getElementById('tour-book-btn');
+  const bookBtnText = document.getElementById('tour-book-btn-text');
   const tourMainImg = document.getElementById('tour-main-img');
 
   if (badgeEl) badgeEl.textContent = s.badge;
   if (titleEl) titleEl.textContent = s.title;
   if (subEl) subEl.textContent = s.subtitle;
+  if (durationLabelEl) durationLabelEl.textContent = s.durationLabel;
   if (durationEl) durationEl.textContent = s.duration;
+  if (scheduleLabelEl) scheduleLabelEl.textContent = s.scheduleLabel;
   if (scheduleEl) scheduleEl.textContent = s.schedule;
+  if (includesTitleEl) includesTitleEl.textContent = s.includesTitle;
 
   if (includesListEl && s.includes) {
     includesListEl.innerHTML = s.includes.map(inc => `
@@ -387,15 +491,17 @@ function renderServicesTour() {
     `).join('');
   }
 
-  if (priceEl) priceEl.textContent = s.priceText;
+  if (priceEl) priceEl.textContent = siteConfig.services.priceText;
   if (unitEl) unitEl.textContent = s.priceUnit;
+  if (bookBtnText) bookBtnText.textContent = s.bookBtn;
 
-  if (tourMainImg && s.galleryImages && s.galleryImages.length > 0) {
-    tourMainImg.src = s.galleryImages[0];
+  if (tourMainImg && siteConfig.services.galleryImages && siteConfig.services.galleryImages.length > 0) {
+    tourMainImg.src = siteConfig.services.galleryImages[0];
+    tourMainImg.alt = s.title;
   }
 
   if (bookBtn) {
-    const waUrl = `https://wa.me/${siteConfig.brand.whatsappNumber}?text=${encodeURIComponent(s.whatsappBookingMessage)}`;
+    const waUrl = `https://wa.me/${siteConfig.brand.whatsappNumber}?text=${encodeURIComponent(s.whatsappMsg)}`;
     bookBtn.setAttribute('href', waUrl);
   }
 }
@@ -403,7 +509,7 @@ function renderServicesTour() {
 /**
  * 8. GALERÍA
  */
-function renderGallery() {
+function renderGallery(t) {
   const gallSec = document.getElementById('galeria');
   if (!siteConfig.mediaGallery.enabled) {
     if (gallSec) gallSec.style.display = 'none';
@@ -415,9 +521,9 @@ function renderGallery() {
   const subEl = document.getElementById('gallery-subtitle');
   const gridEl = document.getElementById('gallery-grid');
 
-  if (tagEl) tagEl.textContent = siteConfig.mediaGallery.tag;
-  if (titleEl) titleEl.textContent = siteConfig.mediaGallery.title;
-  if (subEl) subEl.textContent = siteConfig.mediaGallery.subtitle;
+  if (tagEl) tagEl.textContent = t.mediaGallery.tag;
+  if (titleEl) titleEl.textContent = t.mediaGallery.title;
+  if (subEl) subEl.textContent = t.mediaGallery.subtitle;
 
   if (gridEl && siteConfig.mediaGallery.items) {
     gridEl.innerHTML = siteConfig.mediaGallery.items.map(item => `
@@ -431,7 +537,7 @@ function renderGallery() {
 /**
  * 9. FAQS (ACORDEÓN MINIMALISTA)
  */
-function renderFAQs() {
+function renderFAQs(t) {
   const faqsSec = document.getElementById('faqs');
   if (!siteConfig.faqs.enabled) {
     if (faqsSec) faqsSec.style.display = 'none';
@@ -442,11 +548,11 @@ function renderFAQs() {
   const titleEl = document.getElementById('faqs-title');
   const containerEl = document.getElementById('faqs-container');
 
-  if (tagEl) tagEl.textContent = siteConfig.faqs.tag;
-  if (titleEl) titleEl.textContent = siteConfig.faqs.title;
+  if (tagEl) tagEl.textContent = t.faqs.tag;
+  if (titleEl) titleEl.textContent = t.faqs.title;
 
-  if (containerEl && siteConfig.faqs.items) {
-    containerEl.innerHTML = siteConfig.faqs.items.map((faq, idx) => `
+  if (containerEl && t.faqs.items) {
+    containerEl.innerHTML = t.faqs.items.map((faq, idx) => `
       <div class="faq-card ${idx === 0 ? 'open' : ''}">
         <button class="faq-question-btn" type="button">
           <span>${faq.q}</span>
@@ -479,14 +585,18 @@ function renderFAQs() {
 /**
  * 10. FOOTER
  */
-function renderFooter() {
+function renderFooter(t) {
   const footLogo = document.getElementById('footer-brand-logo');
   const footTitle = document.getElementById('footer-brand-title');
   const footDesc = document.getElementById('footer-brand-desc');
+  const footLocTitle = document.getElementById('footer-loc-title');
+  const footLocation = document.getElementById('footer-location');
+  const footShipping = document.getElementById('footer-shipping');
+  const footOrders = document.getElementById('footer-orders');
+  const footSocialsTitle = document.getElementById('footer-socials-title');
   const footCopy = document.getElementById('footer-copy');
-  const footLoc = document.getElementById('footer-location');
-  const footIg = document.getElementById('footer-ig');
   const footMadeFor = document.getElementById('footer-made-for');
+  const footIg = document.getElementById('footer-ig');
 
   if (footLogo && siteConfig.brand.logo) {
     footLogo.src = siteConfig.brand.logo;
@@ -494,10 +604,14 @@ function renderFooter() {
   }
 
   if (footTitle) footTitle.textContent = siteConfig.brand.shortName || siteConfig.brand.name;
-  if (footDesc) footDesc.textContent = siteConfig.brand.tagline;
-  if (footCopy) footCopy.textContent = siteConfig.footer.copy;
-  if (footMadeFor && siteConfig.footer.madeFor) footMadeFor.textContent = siteConfig.footer.madeFor;
-  if (footLoc) footLoc.textContent = `${siteConfig.brand.location} (${siteConfig.brand.altitude})`;
+  if (footDesc) footDesc.textContent = t.footer.desc;
+  if (footLocTitle) footLocTitle.textContent = t.footer.locationTitle;
+  if (footLocation) footLocation.textContent = t.footer.locationText;
+  if (footShipping) footShipping.textContent = t.footer.shippingText;
+  if (footOrders) footOrders.textContent = t.footer.orderText;
+  if (footSocialsTitle) footSocialsTitle.textContent = t.footer.socialsTitle;
+  if (footCopy) footCopy.textContent = t.footer.copy;
+  if (footMadeFor && t.footer.madeFor) footMadeFor.textContent = t.footer.madeFor;
 
   if (footIg && siteConfig.brand.socials.instagram) {
     footIg.setAttribute('href', siteConfig.brand.socials.instagram);
@@ -506,9 +620,20 @@ function renderFooter() {
 }
 
 /**
- * 11. EVENTOS GLOBALES Y MENÚ MÓVIL
+ * 11. EVENTOS GLOBALES, SELECTOR DE IDIOMA Y MENÚ MÓVIL
  */
 function setupGlobalEvents() {
+  // Selector de idioma (Desktop y Móvil)
+  document.querySelectorAll('.lang-btn, .lang-btn-pill').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const selectedLang = e.currentTarget.dataset.lang;
+      if (selectedLang && selectedLang !== currentLang) {
+        setLanguage(selectedLang, true);
+      }
+    });
+  });
+
+  // Menú hamburguesa móvil
   const hamburgerBtn = document.getElementById('nav-hamburger-btn');
   const menuOverlay = document.getElementById('mobile-menu-overlay');
 

@@ -314,6 +314,56 @@ h1, h2, h3, h4, .font-serif {
   gap: 0.8rem;
 }
 
+/* Selector de Idioma (Desktop) */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  box-shadow: 0 1px 3px rgba(42, 24, 14, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.lang-switcher:hover {
+  border-color: var(--accent);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: var(--accent);
+}
+
+.lang-btn.active {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.lang-divider {
+  font-size: 0.75rem;
+  color: var(--border);
+  user-select: none;
+}
+
 /* Botón Hamburguesa Móvil */
 .nav-hamburger {
   display: flex;
@@ -425,6 +475,56 @@ h1, h2, h3, h4, .font-serif {
   padding-left: 1rem;
   background-color: var(--bg-secondary);
   border-radius: var(--radius-sm);
+}
+
+/* Selector de Idioma en Menú Móvil */
+.mobile-lang-row {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.mobile-lang-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.lang-switcher-mobile {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-btn-pill {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.lang-btn-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.lang-btn-pill.active {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(179, 122, 43, 0.25);
 }
 
 .mobile-menu-cta {
