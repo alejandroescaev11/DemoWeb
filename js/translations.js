@@ -205,7 +205,7 @@ export const translations = {
       orderText: "Pedidos y reservas vía WhatsApp",
       socialsTitle: "Redes Sociales",
       copy: "© 2026 Café Orcasua. Cosechado en las montañas de Colombia.",
-      madeFor: "ByEscoTools"
+      madeFor: "By EscoTools®"
     },
     floatingWhatsapp: {
       tooltip: "¿Deseas pedir o tienes dudas? Escríbenos",
@@ -420,7 +420,7 @@ export const translations = {
       orderText: "Orders & bookings via WhatsApp",
       socialsTitle: "Follow Us",
       copy: "© 2026 Café Orcasua. Harvested in the Colombian Andes.",
-      madeFor: "ByEscoTools"
+      madeFor: "By EscoTools®"
     },
     floatingWhatsapp: {
       tooltip: "Questions or orders? Chat with us",

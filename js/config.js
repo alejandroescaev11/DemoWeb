@@ -317,6 +317,6 @@ export const siteConfig = {
   // 10. PIE DE PÁGINA (FOOTER)
   footer: {
     copy: "© 2026 Café Orcasua. Cosechado con amor en las montañas de Colombia.",
-    madeFor: "ByEscoTools"
+    madeFor: "By EscoTools®"
   }
 };

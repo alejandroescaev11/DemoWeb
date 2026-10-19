@@ -1426,7 +1426,7 @@ h1, h2, h3, h4, .font-serif {
 .footer-section {
   background-color: #1A1513;
   color: #EDE7E1;
-  padding: 4.5rem 0 2.5rem 0;
+  padding: 4.5rem 0 5rem 0;
 }
 
 .footer-grid {
@@ -1531,12 +1531,48 @@ h1, h2, h3, h4, .font-serif {
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  font-size: 0.8rem;
-  color: #7A7067;
+  justify-content: center;
+  gap: 1.25rem;
+  font-size: 0.82rem;
+  color: #8C8074;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 7.5rem; /* Margen de seguridad amplio para que el botón flotante de WhatsApp nunca tape la marca */
+    text-align: left;
+  }
+}
+
+.footer-made-for {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #D4AF37;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.footer-made-for:hover {
+  background: rgba(212, 175, 55, 0.22);
+  border-color: #D4AF37;
+  color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 /* 16. MODAL & CARRITO FLOTANTE DE PEDIDO RÁPIDO */
@@ -1663,6 +1699,9 @@ h1, h2, h3, h4, .font-serif {
 }
 
 @media (max-width: 640px) {
+  .footer-section {
+    padding-bottom: 6.5rem;
+  }
   .floating-whatsapp-btn {
     bottom: 1.25rem;
     right: 1.25rem;
