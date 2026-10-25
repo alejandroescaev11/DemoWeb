@@ -59,7 +59,7 @@ export const siteConfig = {
 
   // 3. SECCIÓN HERO (PORTADA)
   hero: {
-    badge: "Cosecha Fresca 2026 · SUDÁN RUMÉ",
+    badge: "Cosecha Fresca 2026 · SUDÁN RUMÉ · CASTILLO ROSARIO · GEISHA AMARILLO",
     title: "El alma de la montaña andina en cada taza.",
     subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
     primaryCtaText: "Ver Productos & Pedir",

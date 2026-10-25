@@ -23,7 +23,7 @@ export const translations = {
       altitude: "1.700 m.s.n.m."
     },
     hero: {
-      badge: "Cosecha Fresca 2026 · SUDÁN RUMÉ",
+      badge: "Cosecha Fresca 2026 · SUDÁN RUMÉ · CASTILLO ROSARIO · GEISHA AMARILLO",
       title: "El alma de la montaña andina en cada taza.",
       subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
       primaryCta: "Ver Productos & Pedir",
@@ -237,7 +237,7 @@ export const translations = {
       altitude: "1,700 m.a.s.l."
     },
     hero: {
-      badge: "Fresh Harvest 2026 · SUDÁN RUMÉ",
+      badge: "Fresh Harvest 2026 · SUDÁN RUMÉ · CASTILLO ROSARIO · YELLOW GEISHA",
       title: "The soul of the Andean mountains in every cup.",
       subtitle: "Patiently shade-grown at 1,700 meters above sea level in Pinares de Marsella. Handpicked by local coffee-growing families and artisanally roasted at origin.",
       primaryCta: "Explore Products & Order",

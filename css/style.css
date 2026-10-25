@@ -562,14 +562,19 @@ h1, h2, h3, h4, .font-serif {
 .hero-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  line-height: 1.4;
   gap: 0.5rem;
-  padding: 0.4rem 1rem;
+  padding: 0.45rem 1.1rem;
   background-color: var(--accent-soft);
   color: var(--accent);
   font-size: 0.8rem;
   font-weight: 600;
   border-radius: var(--radius-full);
   margin-bottom: 1.5rem;
+  max-width: 100%;
 }
 
 .hero-title {
