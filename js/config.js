@@ -172,8 +172,7 @@ export const siteConfig = {
         processType: "Proceso Honey",
         image: "./assets/SudanRumeHoney-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos", available: true },
-          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos", available: false }
+          { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos", available: true }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -192,8 +191,7 @@ export const siteConfig = {
         processType: "Lavado Clásico",
         image: "./assets/SudanRumeLavado-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos", available: true },
-          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos", available: false }
+          { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos", available: true }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
