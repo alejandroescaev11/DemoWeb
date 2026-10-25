@@ -174,8 +174,7 @@ export const siteConfig = {
         processType: "Lavado Extendido",
         image: "./assets/SudanRumeLavado-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos" },
-          { size: "500g", priceCOP: 90000, label: "Bolsa 500 gramos" }
+          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -194,7 +193,7 @@ export const siteConfig = {
         processType: "Lavado Clásico",
         image: "./assets/Castillo-500g-250g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 26000, label: "Bolsa 250 gramos" },
+          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" },
           { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos" }
         ],
         grindOptions: [
@@ -214,8 +213,7 @@ export const siteConfig = {
         processType: "Proceso Honey Amarillo",
         image: "./assets/SudanRumeHoney-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos" },
-          { size: "500g", priceCOP: 92000, label: "Bolsa 500 gramos" }
+          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -261,45 +259,62 @@ export const siteConfig = {
     enabled: true,
     tag: "PROCESO & ORIGEN",
     title: "Galería del Proceso de Producción",
-    subtitle: "Imágenes y videos de la cosecha, el beneficio ecológico y la vida en nuestra finca en Marsella.",
+    subtitle: "Desliza horizontalmente para conocer el proceso artesanal de Café Orcasua: desde el fruto en rama hasta el secado en marquesinas y beneficio.",
     items: [
       {
-        type: "image",
-        title: "Recolección selectiva grano a grano a 1.700 msnm",
-        category: "Cosecha",
-        url: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
         type: "video",
-        title: "Despulpado y Fermentación Controlada en Tanques Limpios",
+        title: "Beneficio ecológico en maquinaria de la finca",
         category: "Beneficio",
-        thumbnail: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80",
-        videoUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+        thumbnail: "./assets/Galeria/Imagenes/Marquesina01.jpeg",
+        videoUrl: "./assets/Galeria/Videos/Maquina01.mp4"
       },
       {
         type: "image",
-        title: "Secado lento al sol andino en marquesinas elevadas",
+        title: "Cerezas rojas en óptimo punto de maduración",
+        category: "Cosecha",
+        url: "./assets/Galeria/Imagenes/CafeRojo01.jpeg"
+      },
+      {
+        type: "image",
+        title: "Recolección selectiva grano a grano en cafetal",
+        category: "Cosecha",
+        url: "./assets/Galeria/Imagenes/CafeRojo02.jpeg"
+      },
+      {
+        type: "image",
+        title: "Marquesina tradicional de secado al sol andino",
         category: "Secado",
-        url: "https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        type: "video",
-        title: "Tueste medio de origen en pequeños lotes artesanales",
-        category: "Tueste",
-        thumbnail: "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?auto=format&fit=crop&w=1200&q=80",
-        videoUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+        url: "./assets/Galeria/Imagenes/Marquesina01.jpeg"
       },
       {
         type: "image",
-        title: "Floración blanca del cafetal perfumando las laderas",
-        category: "Finca",
-        url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80"
+        title: "Camas elevadas de secado con ventilación natural",
+        category: "Secado",
+        url: "./assets/Galeria/Imagenes/Marquesina02.jpeg"
       },
       {
         type: "image",
-        title: "Preparación artesanal y extracción de notas dulces",
-        category: "En Taza",
-        url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+        title: "Control artesanal de secado en marquesina",
+        category: "Secado",
+        url: "./assets/Galeria/Imagenes/Marquesina03.jpeg"
+      },
+      {
+        type: "image",
+        title: "Café pergamino seco en punto óptimo del 11%",
+        category: "Calidad",
+        url: "./assets/Galeria/Imagenes/CafeSeco01.jpeg"
+      },
+      {
+        type: "image",
+        title: "Frutos verdes en formación bajo la niebla andina",
+        category: "Cultivo",
+        url: "./assets/Galeria/Imagenes/CafeVerde01.jpeg"
+      },
+      {
+        type: "image",
+        title: "Cosecha viva en las laderas de Marsella",
+        category: "Cultivo",
+        url: "./assets/Galeria/Imagenes/CafeVerde02.jpeg"
       }
     ]
   },

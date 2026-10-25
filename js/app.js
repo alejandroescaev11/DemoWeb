@@ -314,13 +314,16 @@ function renderGallery(t) {
   if (titleEl) titleEl.textContent = t.mediaGallery.title;
   if (subEl) subEl.textContent = t.mediaGallery.subtitle;
 
-  // Actualizar textos de los botones de filtro
+  // Actualizar textos de los botones de filtro y pista de scroll
   const filterAll = document.getElementById('gallery-filter-all');
   const filterImages = document.getElementById('gallery-filter-images');
   const filterVideos = document.getElementById('gallery-filter-videos');
+  const hintText = document.getElementById('gallery-hint-text');
+
   if (filterAll) filterAll.textContent = t.mediaGallery.filterAll || 'Todos';
   if (filterImages) filterImages.textContent = t.mediaGallery.filterImages || '📸 Fotografías';
   if (filterVideos) filterVideos.textContent = t.mediaGallery.filterVideos || '🎥 Videos';
+  if (hintText && t.mediaGallery.scrollHint) hintText.textContent = t.mediaGallery.scrollHint;
 
   renderGalleryItems(currentGalleryFilter, t);
 }
@@ -742,6 +745,22 @@ function setupGlobalEvents() {
       renderGalleryItems(currentGalleryFilter, t);
     });
   });
+
+  // Botones de desplazamiento horizontal de la galería
+  const prevBtn = document.getElementById('gallery-prev-btn');
+  const nextBtn = document.getElementById('gallery-next-btn');
+  const track = document.getElementById('gallery-grid');
+
+  if (prevBtn && track) {
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -360, behavior: 'smooth' });
+    });
+  }
+  if (nextBtn && track) {
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: 360, behavior: 'smooth' });
+    });
+  }
 
   // Cierre de modal / lightbox de galería
   const modalCloseBtn = document.getElementById('gallery-modal-close');

@@ -166,12 +166,13 @@ export const translations = {
     mediaGallery: {
       tag: "PROCESO & ORIGEN",
       title: "Galería del Proceso de Producción",
-      subtitle: "Imágenes y videos de la cosecha, el beneficio ecológico y la vida en nuestra finca en Marsella.",
+      subtitle: "Desliza horizontalmente para conocer el proceso artesanal de Café Orcasua: desde el fruto en rama hasta el secado en marquesinas y beneficio.",
       filterAll: "Todos",
       filterImages: "📸 Fotografías",
       filterVideos: "🎥 Videos",
       videoBadge: "Video",
-      photoBadge: "Foto"
+      photoBadge: "Foto",
+      scrollHint: "Desliza horizontalmente para ver más"
     },
     faqs: {
       tag: "DUDAS FRECUENTES",
@@ -377,14 +378,15 @@ export const translations = {
       whatsappMsg: ""
     },
     mediaGallery: {
-      tag: "PROCESS & ORIGEN",
+      tag: "PROCESS & ORIGIN",
       title: "Production Process Gallery",
-      subtitle: "Images and videos of coffee harvesting, eco-friendly washing, and life on our farm in Marsella.",
+      subtitle: "Swipe horizontally to explore Café Orcasua's artisanal process: from cherries on the tree to marquesina sun-drying and eco-milling.",
       filterAll: "All",
       filterImages: "📸 Photos",
       filterVideos: "🎥 Videos",
       videoBadge: "Video",
-      photoBadge: "Photo"
+      photoBadge: "Photo",
+      scrollHint: "Swipe horizontally to see more"
     },
     faqs: {
       tag: "FREQUENT QUESTIONS",
