@@ -60,8 +60,8 @@ export const siteConfig = {
   // 3. SECCIÓN HERO (PORTADA)
   hero: {
     badge: "Cosecha Fresca 2026 · SUDÁN RUMÉ · CASTILLO ROSARIO · GEISHA AMARILLO",
-    title: "El alma de la montaña andina en cada taza.",
-    subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
+    title: "El aroma de nuestra tierra hecho bebida.",
+    subtitle: `<p>Orcasua nace en las montañas de Marsella, Risaralda, donde la neblina abraza cada amanecer y las manos campesinas cuidan con paciencia cada grano de café. A 1.700 metros de altura, en tierras fértiles y con agua pura de manantial, crece un café que guarda la esencia del Eje Cafetero.</p><p>Cada taza de Orcasua es más que café: es tradición, es familia, es el aroma de nuestra tierra hecho bebida. Al probarlo, compartes con nosotros la historia de quienes siembran esperanza en cada cosecha y el orgullo de una región que le regala al mundo su mejor sabor.</p>`,
     primaryCtaText: "Ver Productos & Pedir",
     primaryCtaTarget: "#productos",
     secondaryCtaText: "Galería del Proceso",

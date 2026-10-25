@@ -24,8 +24,8 @@ export const translations = {
     },
     hero: {
       badge: "Cosecha Fresca 2026 · SUDÁN RUMÉ · CASTILLO ROSARIO · GEISHA AMARILLO",
-      title: "El alma de la montaña andina en cada taza.",
-      subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
+      title: "El aroma de nuestra tierra hecho bebida.",
+      subtitle: `<p>Orcasua nace en las montañas de Marsella, Risaralda, donde la neblina abraza cada amanecer y las manos campesinas cuidan con paciencia cada grano de café. A 1.700 metros de altura, en tierras fértiles y con agua pura de manantial, crece un café que guarda la esencia del Eje Cafetero.</p><p>Cada taza de Orcasua es más que café: es tradición, es familia, es el aroma de nuestra tierra hecho bebida. Al probarlo, compartes con nosotros la historia de quienes siembran esperanza en cada cosecha y el orgullo de una región que le regala al mundo su mejor sabor.</p>`,
       primaryCta: "Ver Productos & Pedir",
       secondaryCta: "Galería del Proceso",
       caption: "Escudo Oficial · Café Orcasua Especial",
@@ -244,8 +244,8 @@ export const translations = {
     },
     hero: {
       badge: "Fresh Harvest 2026 · SUDÁN RUMÉ · CASTILLO ROSARIO · YELLOW GEISHA",
-      title: "The soul of the Andean mountains in every cup.",
-      subtitle: "Patiently shade-grown at 1,700 meters above sea level in Pinares de Marsella. Handpicked by local coffee-growing families and artisanally roasted at origin.",
+      title: "The aroma of our land poured into every cup.",
+      subtitle: `<p>Orcasua is born in the mountains of Marsella, Risaralda, where mountain mist embraces every sunrise and artisan hands tenderly nurture every single coffee cherry. At 1,700 meters of altitude, in fertile Andean soils and blessed with pure spring water, our coffee grows preserving the authentic essence of the Colombian Coffee Region.</p><p>Every cup of Orcasua is much more than coffee: it is tradition, family, and the spirit of our land turned into drink. With every sip, you share the story of those who plant hope in every harvest and the pride of a region gifting the world its finest flavor.</p>`,
       primaryCta: "Explore Products & Order",
       secondaryCta: "Process Gallery",
       caption: "Official Crest · Café Orcasua Specialty",

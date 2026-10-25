@@ -173,7 +173,7 @@ function renderHero(t) {
 
   if (heroBadge) heroBadge.textContent = t.hero.badge;
   if (heroTitle) heroTitle.textContent = t.hero.title;
-  if (heroSubtitle) heroSubtitle.textContent = t.hero.subtitle;
+  if (heroSubtitle) heroSubtitle.innerHTML = t.hero.subtitle;
 
   if (heroPrimaryCta) {
     heroPrimaryCta.textContent = t.hero.primaryCta;
