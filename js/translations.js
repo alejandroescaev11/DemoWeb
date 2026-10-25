@@ -196,6 +196,14 @@ export const translations = {
         }
       ]
     },
+    instagram: {
+      tag: "COMUNIDAD & REDES",
+      title: "Vive la experiencia en @orcasua_cafe",
+      subtitle: "Sigue de cerca cada cosecha, el tueste artesanal en Marsella y comparte tus momentos de café etiquetándonos.",
+      followText: "Seguir en Instagram",
+      callout: "¿Ya preparaste tu café hoy? Etiquétanos en tus fotos como @orcasua_cafe para compartir tu experiencia.",
+      viewProfile: "Ver perfil en Instagram"
+    },
     footer: {
       desc: "Café de Especialidad · Origen Marsella, Risaralda. Cultivado con orgullo y respeto por la tierra.",
       locationTitle: "Ubicación & Contacto",
@@ -409,6 +417,14 @@ export const translations = {
           a: "Clicking 'Order' opens WhatsApp with your order summary ready. We confirm availability and share secure bank transfer or online payment details with you directly."
         }
       ]
+    },
+    instagram: {
+      tag: "COMMUNITY & SOCIAL",
+      title: "Experience life at @orcasua_cafe",
+      subtitle: "Follow each harvest step, artisanal roasting in Marsella, and share your coffee moments by tagging us.",
+      followText: "Follow on Instagram",
+      callout: "Brewed your coffee today? Tag us in your stories as @orcasua_cafe to share your moment.",
+      viewProfile: "View Instagram Profile"
     },
     footer: {
       desc: "Single-Origin Specialty Coffee · Marsella, Risaralda. Grown with pride and profound respect for the land.",
