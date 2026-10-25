@@ -350,48 +350,8 @@ export const siteConfig = {
     profileUrl: "https://www.instagram.com/orcasua_cafe/",
     tag: "COMUNIDAD & REDES",
     title: "Vive la experiencia en @orcasua_cafe",
-    subtitle: "Sigue de cerca cada cosecha, el tueste artesanal en Marsella y comparte tus momentos de café etiquetándonos.",
-    followText: "Seguir en Instagram",
-    calloutText: "¿Ya preparaste tu café hoy? Etiquétanos en tus fotos como @orcasua_cafe para compartir tu experiencia.",
-    viewProfileText: "Ver perfil en Instagram",
-    posts: [
-      {
-        id: "post-1",
-        image: "./assets/Galeria/Imagenes/CafeRojo02.jpeg",
-        title: "Recolección selectiva grano a grano",
-        caption: "Comenzamos la recolección selectiva de Sudán Rumé en óptimo punto de maduración en Marsella, Risaralda. 🍒☕",
-        likes: "184",
-        comments: "14",
-        url: "https://www.instagram.com/orcasua_cafe/"
-      },
-      {
-        id: "post-2",
-        image: "./assets/Galeria/Imagenes/CafeRojo01.jpeg",
-        title: "Frutos para proceso Honey & Lavado",
-        caption: "Cerezas cosechadas listas para despulpe y fermentación controlada para nuestros perfiles de especialidad. 🌿✨",
-        likes: "215",
-        comments: "22",
-        url: "https://www.instagram.com/orcasua_cafe/"
-      },
-      {
-        id: "post-3",
-        image: "./assets/Galeria/Imagenes/Marquesina01.jpeg",
-        title: "Secado al sol andino en marquesina",
-        caption: "El sol de la cordillera andina y la ventilación natural en nuestras camas elevadas a 1.700 msnm. ☀️🏔️",
-        likes: "298",
-        comments: "31",
-        url: "https://www.instagram.com/orcasua_cafe/"
-      },
-      {
-        id: "post-4",
-        image: "./assets/Galeria/Imagenes/CafeSeco01.jpeg",
-        title: "Café pergamino seco de origen",
-        caption: "Café pergamino con humedad óptima del 11%. Listo para reposo y tueste medio bajo pedido. 📦☕",
-        likes: "176",
-        comments: "19",
-        url: "https://www.instagram.com/orcasua_cafe/"
-      }
-    ]
+    subtitle: "Acompáñanos en el día a día de la finca, procesos artesanales y cultura cafetera en Marsella, Risaralda. Etiquétanos en tus momentos de café para compartir tu experiencia.",
+    followText: "Seguir en Instagram"
   },
 
   // 11. PIE DE PÁGINA (FOOTER)
