@@ -119,8 +119,9 @@ export const siteConfig = {
         }
       ]
     },
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80",
-    imageCaption: "Tradición campesina cafetera · Finca Orcasua"
+    video: "./assets/Galeria/PanoramicaMute.mp4",
+    image: "./assets/logo.jpg",
+    imageCaption: "Vista panorámica de nuestra finca en Marsella · Café Orcasua"
   },
 
   // 5. PROCESO DE PRODUCCIÓN (PASO A PASO)
@@ -275,9 +276,9 @@ export const siteConfig = {
       },
       {
         type: "video",
-        title: "Vista panorámica de la finca cafetera",
-        category: "Finca",
-        videoUrl: "./assets/Galeria/PanoramicaMute.mp4"
+        title: "Beneficio ecológico en maquinaria de la finca",
+        category: "Beneficio",
+        videoUrl: "./assets/Galeria/Videos/Maquina01.mp4"
       },
       {
         type: "image",

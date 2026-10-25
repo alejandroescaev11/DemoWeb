@@ -736,10 +736,12 @@ h1, h2, h3, h4, .font-serif {
   aspect-ratio: 4 / 4.5;
 }
 
-.story-image-frame img {
+.story-image-frame img,
+.story-image-frame video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .story-content p {
@@ -816,24 +818,35 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .shield-pillars-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 1.25rem;
+  padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--border-light);
 }
 
-@media (min-width: 640px) {
-  .shield-pillars-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.shield-pillars-grid::-webkit-scrollbar {
+  height: 5px;
 }
 
-@media (min-width: 1024px) {
-  .shield-pillars-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.shield-pillars-grid::-webkit-scrollbar-track {
+  background: var(--border-light);
+  border-radius: var(--radius-full);
+}
+
+.shield-pillars-grid::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: var(--radius-full);
 }
 
 .shield-pillar-card {
+  flex: 0 0 270px;
+  max-width: 270px;
+  scroll-snap-align: start;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
   border-top: 3px solid var(--accent);
@@ -842,6 +855,26 @@ h1, h2, h3, h4, .font-serif {
   transition: var(--transition-smooth);
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .shield-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: visible;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  .shield-pillar-card {
+    flex: initial;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shield-pillars-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .shield-pillar-card:hover {
@@ -875,24 +908,35 @@ h1, h2, h3, h4, .font-serif {
 
 /* 10. PROCESO DE PRODUCCIÓN (TARJETAS NUMERADAS) */
 .process-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.75rem;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 1.25rem;
+  padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--border-light);
 }
 
-@media (min-width: 640px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.process-grid::-webkit-scrollbar {
+  height: 5px;
 }
 
-@media (min-width: 1024px) {
-  .process-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.process-grid::-webkit-scrollbar-track {
+  background: var(--border-light);
+  border-radius: var(--radius-full);
+}
+
+.process-grid::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: var(--radius-full);
 }
 
 .process-card {
+  flex: 0 0 270px;
+  max-width: 270px;
+  scroll-snap-align: start;
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
@@ -900,6 +944,26 @@ h1, h2, h3, h4, .font-serif {
   transition: var(--transition-smooth);
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: visible;
+    padding: 0;
+    gap: 1.75rem;
+  }
+  .process-card {
+    flex: initial;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .process-card:hover {
@@ -942,24 +1006,35 @@ h1, h2, h3, h4, .font-serif {
 
 /* 11. PRODUCTOS & PEDIDO INTERACTIVO */
 .products-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 1.25rem;
+  padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--border-light);
 }
 
-@media (min-width: 768px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.products-grid::-webkit-scrollbar {
+  height: 5px;
 }
 
-@media (min-width: 1060px) {
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.products-grid::-webkit-scrollbar-track {
+  background: var(--border-light);
+  border-radius: var(--radius-full);
+}
+
+.products-grid::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: var(--radius-full);
 }
 
 .product-card {
+  flex: 0 0 290px;
+  max-width: 290px;
+  scroll-snap-align: start;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -967,6 +1042,26 @@ h1, h2, h3, h4, .font-serif {
   display: flex;
   flex-direction: column;
   transition: var(--transition-smooth);
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: visible;
+    padding: 0;
+    gap: 2rem;
+  }
+  .product-card {
+    flex: initial;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1060px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .product-card:hover {
@@ -1475,15 +1570,22 @@ h1, h2, h3, h4, .font-serif {
   }
 }
 
-.gallery-scroll-hint {
+.gallery-scroll-hint,
+.mobile-scroll-hint {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
   font-size: 0.8rem;
   color: var(--text-muted);
-  margin-top: 0.5rem;
+  margin-top: 0.65rem;
   opacity: 0.85;
+}
+
+@media (min-width: 768px) {
+  .mobile-scroll-hint {
+    display: none !important;
+  }
 }
 
 @media (min-width: 860px) {

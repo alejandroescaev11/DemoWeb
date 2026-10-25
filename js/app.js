@@ -235,9 +235,24 @@ function renderStory(t) {
     `).join('');
   }
 
-  if (storyImg) {
-    storyImg.src = siteConfig.story.image;
-    storyImg.alt = t.story.imageCaption || siteConfig.brand.name;
+  const storyMediaFrame = document.querySelector('.story-image-frame');
+  if (storyMediaFrame) {
+    if (siteConfig.story.video) {
+      const existingVideo = document.getElementById('story-video');
+      if (existingVideo) {
+        if (existingVideo.getAttribute('src') !== siteConfig.story.video) {
+          existingVideo.src = siteConfig.story.video;
+        }
+      } else {
+        storyMediaFrame.innerHTML = `
+          <video id="story-video" src="${siteConfig.story.video}" autoplay loop muted playsinline poster="./assets/logo.jpg"></video>
+        `;
+      }
+    } else {
+      storyMediaFrame.innerHTML = `
+        <img id="story-img" src="${siteConfig.story.image}" alt="${t.story.imageCaption || siteConfig.brand.name}">
+      `;
+    }
   }
 
   if (shieldPillarsEl && t.story.shieldPillars) {
@@ -255,6 +270,12 @@ function renderStory(t) {
             <p class="pillar-desc">${item.desc}</p>
           </div>
         `).join('')}
+      </div>
+      <div class="mobile-scroll-hint">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        <span>Desliza para ver los 4 pilares</span>
       </div>
     `;
   }
