@@ -235,7 +235,7 @@ function renderStory(t) {
     `).join('');
   }
 
-  const storyMediaFrame = document.querySelector('.story-image-frame');
+  const storyMediaFrame = document.querySelector('.story-video-frame, .story-image-frame');
   if (storyMediaFrame) {
     if (siteConfig.story.video) {
       const existingVideo = document.getElementById('story-video');
@@ -246,6 +246,10 @@ function renderStory(t) {
       } else {
         storyMediaFrame.innerHTML = `
           <video id="story-video" src="${siteConfig.story.video}" autoplay loop muted playsinline poster="./assets/logo.jpg"></video>
+          <div class="story-video-overlay-badge">
+            <span class="story-video-badge-icon">🌿</span>
+            <span class="story-video-badge-text">Finca Orcasua · Marsella</span>
+          </div>
         `;
       }
     } else {

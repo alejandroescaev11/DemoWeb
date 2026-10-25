@@ -31,10 +31,10 @@
 
       <nav>
         <ul class="nav-links">
+          <li><a href="#productos" class="nav-link" id="nav-link-products">Nuestra Cosecha</a></li>
           <li><a href="#historia" class="nav-link" id="nav-link-story">Historia</a></li>
           <li><a href="#proceso" class="nav-link" id="nav-link-process">Proceso</a></li>
           <li><a href="#galeria" class="nav-link" id="nav-link-gallery">Galería</a></li>
-          <li><a href="#productos" class="nav-link" id="nav-link-products">Nuestra Cosecha</a></li>
           <li><a href="#faqs" class="nav-link" id="nav-link-faqs">Preguntas</a></li>
         </ul>
       </nav>
@@ -60,10 +60,10 @@
     <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true">
       <div class="mobile-menu-container">
         <ul class="mobile-nav-links">
+          <li><a href="#productos" class="mobile-nav-link" id="mob-link-products">Nuestra Cosecha</a></li>
           <li><a href="#historia" class="mobile-nav-link" id="mob-link-story">Historia & Escudo</a></li>
           <li><a href="#proceso" class="mobile-nav-link" id="mob-link-process">Proceso</a></li>
           <li><a href="#galeria" class="mobile-nav-link" id="mob-link-gallery">Galería del Proceso</a></li>
-          <li><a href="#productos" class="mobile-nav-link" id="mob-link-products">Nuestra Cosecha</a></li>
           <li><a href="#faqs" class="mobile-nav-link" id="mob-link-faqs">Preguntas Frecuentes</a></li>
         </ul>
 
@@ -122,13 +122,39 @@
       </div>
     </section>
 
-    <!-- 2. HISTORIA & ORIGEN (STORYTELLING) -->
+    <!-- 2. CATÁLOGO DE PRODUCTOS (PEDIDO DIRECTO A WHATSAPP) -->
+    <section class="section-padding" id="productos" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" id="products-tag">NUESTRA COSECHA</span>
+          <h2 class="section-title" id="products-title">Elige tu presentación favorita.</h2>
+          <p class="section-subtitle" id="products-subtitle">
+            Envíos directos a toda Colombia. Tostado bajo pedido para que lo recibas en su pico máximo de frescura.
+          </p>
+        </div>
+        <div class="products-grid" id="products-grid">
+          <!-- Renderizado dinámico de tarjetas de café -->
+        </div>
+        <div class="mobile-scroll-hint">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <span>Desliza horizontalmente para ver todos los cafés</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. HISTORIA & ORIGEN (STORYTELLING) -->
     <section class="section-padding story-section" id="historia">
       <div class="container">
         <div class="story-grid">
           <div class="story-image-wrap">
-            <div class="story-image-frame shield-capsule-wrap">
+            <div class="story-video-frame">
               <video id="story-video" src="./assets/Galeria/PanoramicaMute.mp4" autoplay loop muted playsinline poster="./assets/logo.jpg"></video>
+              <div class="story-video-overlay-badge">
+                <span class="story-video-badge-icon">🌿</span>
+                <span class="story-video-badge-text">Finca Orcasua · Marsella</span>
+              </div>
             </div>
           </div>
           <div class="story-content">
@@ -152,8 +178,8 @@
       </div>
     </section>
 
-    <!-- 3. PROCESO DE PRODUCCIÓN -->
-    <section class="section-padding" id="proceso">
+    <!-- 4. PROCESO DE PRODUCCIÓN -->
+    <section class="section-padding" id="proceso" style="background-color: var(--bg-secondary);">
       <div class="container">
         <div class="section-header">
           <span class="section-tag" id="process-tag">PROCESO ARTESANAL</span>
@@ -170,28 +196,6 @@
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
           <span>Desliza horizontalmente para ver más</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. CATÁLOGO DE PRODUCTOS (PEDIDO DIRECTO A WHATSAPP) -->
-    <section class="section-padding" id="productos" style="background-color: var(--bg-secondary);">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag" id="products-tag">NUESTRA COSECHA</span>
-          <h2 class="section-title" id="products-title">Elige tu presentación favorita.</h2>
-          <p class="section-subtitle" id="products-subtitle">
-            Envíos directos a toda Colombia. Tostado bajo pedido para que lo recibas en su pico máximo de frescura.
-          </p>
-        </div>
-        <div class="products-grid" id="products-grid">
-          <!-- Renderizado dinámico de tarjetas de café -->
-        </div>
-        <div class="mobile-scroll-hint">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-          <span>Desliza horizontalmente para ver todos los cafés</span>
         </div>
       </div>
     </section>
