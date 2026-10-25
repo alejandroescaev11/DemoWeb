@@ -1139,11 +1139,45 @@ h1, h2, h3, h4, .font-serif {
   margin-bottom: 0.5rem;
 }
 
+.product-desc-wrap {
+  margin-bottom: 1.15rem;
+}
+
 .product-desc {
   font-size: 0.88rem;
+  line-height: 1.55;
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
-  min-height: 48px;
+  margin-bottom: 0.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.product-desc.is-expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.product-desc-toggle {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.product-desc-toggle:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
 
 .tasting-notes-wrap {

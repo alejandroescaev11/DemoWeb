@@ -511,7 +511,12 @@ function renderProducts(t) {
           </div>
           <div class="product-body">
             <h3 class="product-title">${product.name}</h3>
-            <p class="product-desc">${product.description}</p>
+            <div class="product-desc-wrap">
+              <p class="product-desc" id="desc-${product.id}">${product.description}</p>
+              <button type="button" class="product-desc-toggle" data-product-id="${product.id}" aria-expanded="false">
+                <span class="toggle-text">${ui.readMore || 'Ampliar información +'}</span>
+              </button>
+            </div>
 
             <div class="tasting-notes-wrap">
               ${product.tastingNotes.map(n => `<span class="tasting-note-tag">${n}</span>`).join('')}
@@ -589,6 +594,24 @@ function renderProducts(t) {
         // Actualizar precio mostrado
         const priceEl = document.getElementById(`price-display-${prodId}`);
         if (priceEl) priceEl.textContent = formatCOP(price);
+      });
+    });
+
+    // Listener para botón "Ampliar información" / "Ver menos"
+    gridEl.querySelectorAll('.product-desc-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const prodId = e.currentTarget.dataset.productId;
+        const descEl = document.getElementById(`desc-${prodId}`);
+        const textSpan = e.currentTarget.querySelector('.toggle-text');
+        if (!descEl) return;
+
+        const isExpanded = descEl.classList.toggle('is-expanded');
+        e.currentTarget.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        if (textSpan) {
+          textSpan.textContent = isExpanded 
+            ? (ui.readLess || 'Ver menos −') 
+            : (ui.readMore || 'Ampliar información +');
+        }
       });
     });
 

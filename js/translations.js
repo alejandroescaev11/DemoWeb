@@ -116,7 +116,9 @@ export const translations = {
         orderBtn: "Pedir",
         bag250: "Bolsa 250 gramos",
         bag500: "Bolsa 500 gramos",
-        bag1000: "Bolsa 1 Kilo"
+        bag1000: "Bolsa 1 Kilo",
+        readMore: "Ampliar información +",
+        readLess: "Ver menos −"
       },
       grindOptions: [
         "Grano",
@@ -334,7 +336,9 @@ export const translations = {
         orderBtn: "Order",
         bag250: "250g Bag",
         bag500: "500g Bag",
-        bag1000: "1kg Bag"
+        bag1000: "1kg Bag",
+        readMore: "Read more +",
+        readLess: "Show less −"
       },
       grindOptions: [
         "Whole Bean",
