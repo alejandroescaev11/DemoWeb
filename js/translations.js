@@ -119,10 +119,8 @@ export const translations = {
         bag1000: "Bolsa 1 Kilo"
       },
       grindOptions: [
-        "En Grano (Recomendado)",
-        "Molienda Media (Cafetera de Goteo / V60)",
-        "Molienda Gruesa (Prensa Francesa / Cold Brew)",
-        "Molienda Fina (Espresso / Moka Italiana)"
+        "Grano",
+        "Molido"
       ],
       items: [
         {
@@ -339,10 +337,8 @@ export const translations = {
         bag1000: "1kg Bag"
       },
       grindOptions: [
-        "Whole Bean (Recommended)",
-        "Medium Grind (Drip Coffee Maker / V60)",
-        "Coarse Grind (French Press / Cold Brew)",
-        "Fine Grind (Espresso / Moka Pot)"
+        "Whole Bean",
+        "Ground"
       ],
       items: [
         {

@@ -175,10 +175,8 @@ export const siteConfig = {
           { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos", available: true }
         ],
         grindOptions: [
-          "En Grano (Recomendado)",
-          "Molienda Media (Cafetera de Goteo / V60)",
-          "Molienda Gruesa (Prensa Francesa / Cold Brew)",
-          "Molienda Fina (Espresso / Moka Italiana)"
+          "Grano",
+          "Molido"
         ]
       },
       {
@@ -194,10 +192,8 @@ export const siteConfig = {
           { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos", available: true }
         ],
         grindOptions: [
-          "En Grano (Recomendado)",
-          "Molienda Media (Cafetera de Goteo / V60)",
-          "Molienda Gruesa (Prensa Francesa / Cold Brew)",
-          "Molienda Fina (Espresso / Moka Italiana)"
+          "Grano",
+          "Molido"
         ]
       },
       {
@@ -214,10 +210,8 @@ export const siteConfig = {
           { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos", available: true }
         ],
         grindOptions: [
-          "En Grano (Recomendado)",
-          "Molienda Media (Cafetera de Goteo / V60)",
-          "Molienda Gruesa (Prensa Francesa / Cold Brew)",
-          "Molienda Fina (Espresso / Moka Italiana)"
+          "Grano",
+          "Molido"
         ]
       }
     ]
