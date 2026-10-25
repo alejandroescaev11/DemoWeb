@@ -207,7 +207,7 @@ function renderHero(t) {
  */
 function renderStory(t) {
   const storySec = document.getElementById('historia');
-  if (!siteConfig.story.enabled) {
+  if (!storySec || !siteConfig.story || !siteConfig.story.enabled) {
     if (storySec) storySec.style.display = 'none';
     return;
   }

@@ -77,9 +77,9 @@ export const siteConfig = {
     ]
   },
 
-  // 4. HISTORIA & ORIGEN (STORYTELLING)
+  // 4. HISTORIA & ORIGEN (STORYTELLING - DESACTIVADA)
   story: {
-    enabled: true,
+    enabled: false,
     tag: "NUESTRA HISTORIA & ESCUDO",
     title: "Más que café: tres generaciones cuidando la tierra.",
     paragraphs: [
@@ -132,25 +132,25 @@ export const siteConfig = {
         number: "01",
         title: "Recolección Selectiva",
         description: "Únicamente recolectamos las cerezas en su estado de maduración óptimo (rojo púrpura), garantizando alta concentración de azúcares.",
-        image: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=800&q=80"
+        image: "./assets/Galeria/Imagenes/CafeRojo02.jpeg"
       },
       {
         number: "02",
         title: "Beneficio & Fermentación",
         description: "Despulpado cuidadoso y fermentación controlada de 36 horas en tanques limpios para resaltar notas florales y acidez brillante.",
-        image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
+        image: "./assets/Galeria/Imagenes/CafeRojo01.jpeg"
       },
       {
         number: "03",
         title: "Secado al Sol Andino",
         description: "Secado lento y uniforme en camas elevadas de madera protegidas bajo el sol de montaña hasta alcanzar 11% de humedad perfecta.",
-        image: "https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=800&q=80"
+        image: "./assets/Galeria/Imagenes/Marquesina01.jpeg"
       },
       {
         number: "04",
         title: "Tueste Medio de Origen",
         description: "Tostamos en pequeños lotes de 5kg semanalmente para garantizar frescura absoluta, revelando notas a chocolate amargo, caramelo y panela.",
-        image: "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?auto=format&fit=crop&w=800&q=80"
+        image: "./assets/Galeria/Imagenes/CafeSeco01.jpeg"
       }
     ]
   },
