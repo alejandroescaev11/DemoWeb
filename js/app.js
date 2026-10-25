@@ -235,30 +235,6 @@ function renderStory(t) {
     `).join('');
   }
 
-  const storyMediaFrame = document.querySelector('.story-video-frame, .story-image-frame');
-  if (storyMediaFrame) {
-    if (siteConfig.story.video) {
-      const existingVideo = document.getElementById('story-video');
-      if (existingVideo) {
-        if (existingVideo.getAttribute('src') !== siteConfig.story.video) {
-          existingVideo.src = siteConfig.story.video;
-        }
-      } else {
-        storyMediaFrame.innerHTML = `
-          <video id="story-video" src="${siteConfig.story.video}" autoplay loop muted playsinline poster="./assets/logo.jpg"></video>
-          <div class="story-video-overlay-badge">
-            <span class="story-video-badge-icon">🌿</span>
-            <span class="story-video-badge-text">Finca Orcasua · Marsella</span>
-          </div>
-        `;
-      }
-    } else {
-      storyMediaFrame.innerHTML = `
-        <img id="story-img" src="${siteConfig.story.image}" alt="${t.story.imageCaption || siteConfig.brand.name}">
-      `;
-    }
-  }
-
   if (shieldPillarsEl && t.story.shieldPillars) {
     const sp = t.story.shieldPillars;
     shieldPillarsEl.innerHTML = `
@@ -544,15 +520,27 @@ function renderProducts(t) {
               <div class="config-group">
                 <span class="config-label">${ui.presentation}</span>
                 <div class="variant-pills" id="variants-${product.id}">
-                  ${baseProduct.variants.map((v, idx) => `
-                    <button type="button" 
-                      class="variant-pill-btn ${idx === 0 ? 'active' : ''}" 
-                      data-product-id="${product.id}" 
-                      data-size="${v.size}" 
-                      data-price="${v.priceCOP}">
-                      ${v.size}
-                    </button>
-                  `).join('')}
+                  ${baseProduct.variants.map((v, idx) => {
+                    const isAvailable = v.available !== false;
+                    const disabledAttr = isAvailable ? '' : 'disabled aria-disabled="true"';
+                    const disabledClass = isAvailable ? '' : 'is-disabled';
+                    const titleAttr = isAvailable ? '' : (currentLang === 'en' ? 'title="Temporarily unavailable in this presentation"' : 'title="No disponible por el momento en esta presentación"');
+                    const statusText = isAvailable ? '' : `<span class="variant-pill-status">(${currentLang === 'en' ? 'No disp.' : 'Agotado'})</span>`;
+
+                    return `
+                      <button type="button" 
+                        class="variant-pill-btn ${idx === 0 && isAvailable ? 'active' : ''} ${disabledClass}" 
+                        data-product-id="${product.id}" 
+                        data-size="${v.size}" 
+                        data-price="${v.priceCOP}"
+                        data-available="${isAvailable}"
+                        ${disabledAttr}
+                        ${titleAttr}>
+                        <span class="variant-pill-size">${v.size}</span>
+                        ${statusText}
+                      </button>
+                    `;
+                  }).join('')}
                 </div>
               </div>
 
@@ -584,6 +572,9 @@ function renderProducts(t) {
     // Listener para cambio de variantes (250g, 500g, etc.)
     gridEl.querySelectorAll('.variant-pill-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
+        if (e.currentTarget.disabled || e.currentTarget.dataset.available === 'false') {
+          return;
+        }
         const prodId = e.currentTarget.dataset.productId;
         const price = parseInt(e.currentTarget.dataset.price, 10);
 

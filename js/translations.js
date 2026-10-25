@@ -126,25 +126,25 @@ export const translations = {
       ],
       items: [
         {
-          id: "prod-SudanRumeLavado",
-          name: "Sudán Rumé · Lavado",
-          badge: "Más Exclusivo",
-          description: "Una variedad exótica de perfil floral complejo, acidez sedosa y postgusto prolongado a miel silvestre y durazno.",
-          tastingNotes: ["Miel Silvestre", "Durazno", "Jazmín", "Cítrico Dulce"]
-        },
-        {
           id: "prod-SudanRumeHoney",
           name: "Sudán Rumé · Honey",
-          badge: "Micro-Lote Limitado",
-          description: "Secado lentamente al sol andino con su mucílago natural dulce. Notas excepcionales a miel de caña, frutas amarillas, acidez vinosa y cuerpo aterciopelado.",
-          tastingNotes: ["Miel de Caña", "Frutas Amarillas", "Cacao", "Mora silvestre"]
+          badge: "Variedad Ancestral · Honey",
+          description: "Un café de variedad ancestral africana que resalta la riqueza y complejidad de nuestro origen en Marsella, Risaralda, a 1.700 m s. n. m. Su proceso Honey, en el que el café se seca conservando parte del mucílago del fruto, favorece una taza dulce, con una textura sedosa y un perfil aromático envolvente. Destaca por sus notas de miel, mantequilla, mandarina, flores y frutos amarillos, acompañadas de una acidez cítrica delicada que brinda una experiencia elegante y memorable.",
+          tastingNotes: ["Miel", "Mantequilla", "Mandarina", "Flores", "Frutos Amarillos", "Acidez Cítrica"]
+        },
+        {
+          id: "prod-SudanRumeLavado",
+          name: "Sudán Rumé · Lavado",
+          badge: "Variedad Ancestral · Lavado",
+          description: "Una variedad ancestral de origen africano, reconocida por su exclusividad y su potencial para ofrecer experiencias sensoriales extraordinarias. Cultivado a 1.700 m s. n. m. en Marsella, Risaralda, nuestro Sudán Rume destaca por su perfil elegante y complejo, con notas florales, mandarina, frutos amarillos, cidrón, mantequilla y miel. Su delicada combinación de aromas y sabores ofrece una taza dulce, cítrica y envolvente, ideal para quienes buscan descubrir la esencia de los cafés de especialidad colombianos.",
+          tastingNotes: ["Notas Florales", "Mandarina", "Frutos Amarillos", "Cidrón", "Mantequilla", "Miel"]
         },
         {
           id: "prod-castillo",
           name: "Castillo Rosario",
           badge: "El Favorito de la Casa",
-          description: "Cuerpo redondo y equilibrado con notas clásicas reconfortantes de chocolate oscuro, panela caramelizada y avellanas tostadas.",
-          tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"]
+          description: "Una variedad colombiana que expresa el carácter y la riqueza de nuestra tierra cafetera en Marsella, Risaralda. Cultivado a 1.700 m s. n. m., nuestro Castillo Rosario ofrece una taza equilibrada y dulce, con notas de panela, miel, caña de azúcar y un delicado toque cítrico que recuerda a la manzanilla y el limón. Su perfil aromático y su dulzura natural lo convierten en una experiencia reconfortante, ideal para disfrutar la esencia auténtica del café colombiano de especialidad.",
+          tastingNotes: ["Panela", "Miel", "Caña de Azúcar", "Manzanilla", "Limón"]
         }
       ]
     },
@@ -340,25 +340,25 @@ export const translations = {
       ],
       items: [
         {
-          id: "prod-SudanRumeLavado",
-          name: "Sudan Rume · Washed",
-          badge: "Most Exclusive",
-          description: "An exotic variety celebrated for its complex floral notes, silky acidity, and prolonged finish of wild honey and peach.",
-          tastingNotes: ["Wild Honey", "Peach", "Jasmine", "Sweet Citrus"]
-        },
-        {
           id: "prod-SudanRumeHoney",
           name: "Sudan Rume · Honey",
-          badge: "Limited Micro-Lot",
-          description: "Slowly sun-dried with its natural sweet mucilage. Exceptional sweetness of sugar cane, yellow fruits, winey brightness, and a velvety smooth body.",
-          tastingNotes: ["Cane Honey", "Yellow Fruits", "Cacao Nibs", "Wild Blackberry"]
+          badge: "Ancestral Variety · Honey",
+          description: "An ancestral African variety highlighting the richness and complexity of our origin in Marsella, Risaralda, at 1,700 m a.s.l. Its Honey process, where coffee is dried retaining part of the fruit's natural mucilage, yields a sweet cup with silky texture and an enveloping aroma. Featuring distinct notes of honey, butter, tangerine, flowers, and yellow fruits, accompanied by delicate citrus acidity for an elegant, memorable experience.",
+          tastingNotes: ["Honey", "Butter", "Tangerine", "Floral", "Yellow Fruits", "Delicate Citrus"]
+        },
+        {
+          id: "prod-SudanRumeLavado",
+          name: "Sudan Rume · Washed",
+          badge: "Ancestral Variety · Washed",
+          description: "An ancestral variety of African origin, renowned for its exclusivity and potential to deliver extraordinary sensory journeys. Cultivated at 1,700 m a.s.l. in Marsella, Risaralda, our Sudan Rume stands out for its elegant, complex profile with floral notes, tangerine, yellow fruits, lemon verbena (cidrón), butter, and honey. Its delicate blend of aromas and flavors delivers a sweet, citrusy, and enveloping cup, ideal for discovering authentic Colombian specialty coffee.",
+          tastingNotes: ["Floral Notes", "Tangerine", "Yellow Fruits", "Lemon Verbena", "Butter", "Honey"]
         },
         {
           id: "prod-castillo",
           name: "Castillo Rosario",
           badge: "House Favorite",
-          description: "Round, balanced body with comforting classic notes of dark artisan cacao, caramelized panela, and roasted hazelnuts.",
-          tastingNotes: ["Dark Chocolate", "Panela Cane", "Hazelnut", "Vanilla"]
+          description: "A Colombian variety expressing the character and rich coffee heritage of Marsella, Risaralda. Cultivated at 1,700 m a.s.l., our Castillo Rosario offers a balanced, naturally sweet cup with notes of panela, honey, sugar cane, and a delicate citrus touch reminiscent of chamomile and lemon. Its aromatic profile and comforting sweetness provide an authentic Colombian specialty coffee experience.",
+          tastingNotes: ["Panela", "Honey", "Sugar Cane", "Chamomile", "Lemon"]
         }
       ]
     },

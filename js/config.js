@@ -118,10 +118,7 @@ export const siteConfig = {
           desc: "Canasto al hombro y sombrero campesino: respeto y gratitud por quienes cultivan."
         }
       ]
-    },
-    video: "./assets/Galeria/PanoramicaMute.mp4",
-    image: "./assets/logo.jpg",
-    imageCaption: "Vista panorámica de nuestra finca en Marsella · Café Orcasua"
+    }
   },
 
   // 5. PROCESO DE PRODUCCIÓN (PASO A PASO)
@@ -166,16 +163,17 @@ export const siteConfig = {
     subtitle: "Envíos directos a toda Colombia. Tostado bajo pedido para que lo recibas en su pico máximo de aroma y frescura.",
     items: [
       {
-        id: "prod-SudanRumeLavado",
-        name: "Sudán Rumé · Lavado",
-        badge: "Más Exclusivo",
-        description: "Una variedad exótica de perfil floral complejo, acidez sedosa y postgusto prolongado a miel silvestre y durazno.",
-        tastingNotes: ["Miel Silvestre", "Durazno", "Jazmín", "Cítrico Dulce"],
+        id: "prod-SudanRumeHoney",
+        name: "Sudán Rumé · Honey",
+        badge: "Variedad Ancestral · Honey",
+        description: "Un café de variedad ancestral africana que resalta la riqueza y complejidad de nuestro origen en Marsella, Risaralda, a 1.700 m s. n. m. Su proceso Honey, en el que el café se seca conservando parte del mucílago del fruto, favorece una taza dulce, con una textura sedosa y un perfil aromático envolvente. Destaca por sus notas de miel, mantequilla, mandarina, flores y frutos amarillos, acompañadas de una acidez cítrica delicada que brinda una experiencia elegante y memorable.",
+        tastingNotes: ["Miel", "Mantequilla", "Mandarina", "Flores", "Frutos Amarillos", "Acidez Cítrica"],
         altitude: "1.700 msnm",
-        processType: "Lavado Extendido",
-        image: "./assets/SudanRumeLavado-500g.jpeg",
+        processType: "Proceso Honey",
+        image: "./assets/SudanRumeHoney-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" }
+          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos", available: true },
+          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos", available: false }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -185,16 +183,17 @@ export const siteConfig = {
         ]
       },
       {
-        id: "prod-SudanRumeHoney",
-        name: "Sudán Rumé · Honey",
-        badge: "Micro-Lote Limitado",
-        description: "Secado lentamente al sol andino con su mucílago natural dulce. Notas excepcionales a miel de caña, frutas amarillas, acidez vinosa y cuerpo aterciopelado.",
-        tastingNotes: ["Miel de Caña", "Frutas Amarillas", "Cacao", "Mora silvestre"],
+        id: "prod-SudanRumeLavado",
+        name: "Sudán Rumé · Lavado",
+        badge: "Variedad Ancestral · Lavado",
+        description: "Una variedad ancestral de origen africano, reconocida por su exclusividad y su potencial para ofrecer experiencias sensoriales extraordinarias. Cultivado a 1.700 m s. n. m. en Marsella, Risaralda, nuestro Sudán Rume destaca por su perfil elegante y complejo, con notas florales, mandarina, frutos amarillos, cidrón, mantequilla y miel. Su delicada combinación de aromas y sabores ofrece una taza dulce, cítrica y envolvente, ideal para quienes buscan descubrir la esencia de los cafés de especialidad colombianos.",
+        tastingNotes: ["Notas Florales", "Mandarina", "Frutos Amarillos", "Cidrón", "Mantequilla", "Miel"],
         altitude: "1.700 msnm",
-        processType: "Proceso Honey Amarillo",
-        image: "./assets/SudanRumeHoney-500g.jpeg",
+        processType: "Lavado Clásico",
+        image: "./assets/SudanRumeLavado-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" }
+          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos", available: true },
+          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos", available: false }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -207,14 +206,14 @@ export const siteConfig = {
         id: "prod-castillo",
         name: "Castillo Rosario",
         badge: "El Favorito de la Casa",
-        description: "Cuerpo redondo y equilibrado con notas clásicas reconfortantes de chocolate oscuro, panela caramelizada y avellanas tostadas.",
-        tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"],
+        description: "Una variedad colombiana que expresa el carácter y la riqueza de nuestra tierra cafetera en Marsella, Risaralda. Cultivado a 1.700 m s. n. m., nuestro Castillo Rosario ofrece una taza equilibrada y dulce, con notas de panela, miel, caña de azúcar y un delicado toque cítrico que recuerda a la manzanilla y el limón. Su perfil aromático y su dulzura natural lo convierten en una experiencia reconfortante, ideal para disfrutar la esencia auténtica del café colombiano de especialidad.",
+        tastingNotes: ["Panela", "Miel", "Caña de Azúcar", "Manzanilla", "Limón"],
         altitude: "1.700 msnm",
         processType: "Lavado Clásico",
         image: "./assets/Castillo-500g-250g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" },
-          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos" }
+          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos", available: true },
+          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos", available: true }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
