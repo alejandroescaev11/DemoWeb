@@ -354,7 +354,7 @@ function renderGalleryItems(filter, t) {
       if (item.thumbnail) {
         mediaMarkup = `<img src="${item.thumbnail}" alt="${item.title}" loading="lazy">`;
       } else {
-        mediaMarkup = `<video preload="metadata" muted playsinline src="${item.videoUrl}#t=0.5" class="gallery-card-thumb-video"></video>`;
+        mediaMarkup = `<video preload="metadata" muted loop autoplay playsinline src="${item.videoUrl}" class="gallery-card-thumb-video"></video>`;
       }
     } else {
       mediaMarkup = `<img src="${item.url}" alt="${item.title}" loading="lazy">`;

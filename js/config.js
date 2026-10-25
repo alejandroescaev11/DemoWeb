@@ -184,26 +184,6 @@ export const siteConfig = {
         ]
       },
       {
-        id: "prod-castillo",
-        name: "Castillo Tradicional · Finca Seleccionada",
-        badge: "El Favorito de la Casa",
-        description: "Cuerpo redondo y equilibrado con notas clásicas reconfortantes de chocolate oscuro, panela caramelizada y avellanas tostadas.",
-        tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"],
-        altitude: "1.700 msnm",
-        processType: "Lavado Clásico",
-        image: "./assets/Castillo-500g-250g.jpeg",
-        variants: [
-          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" },
-          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos" }
-        ],
-        grindOptions: [
-          "En Grano (Recomendado)",
-          "Molienda Media (Cafetera de Goteo / V60)",
-          "Molienda Gruesa (Prensa Francesa / Cold Brew)",
-          "Molienda Fina (Espresso / Moka Italiana)"
-        ]
-      },
-      {
         id: "prod-SudanRumeHoney",
         name: "Sudán Rumé · Honey",
         badge: "Micro-Lote Limitado",
@@ -214,6 +194,26 @@ export const siteConfig = {
         image: "./assets/SudanRumeHoney-500g.jpeg",
         variants: [
           { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" }
+        ],
+        grindOptions: [
+          "En Grano (Recomendado)",
+          "Molienda Media (Cafetera de Goteo / V60)",
+          "Molienda Gruesa (Prensa Francesa / Cold Brew)",
+          "Molienda Fina (Espresso / Moka Italiana)"
+        ]
+      },
+      {
+        id: "prod-castillo",
+        name: "Castillo Rosario",
+        badge: "El Favorito de la Casa",
+        description: "Cuerpo redondo y equilibrado con notas clásicas reconfortantes de chocolate oscuro, panela caramelizada y avellanas tostadas.",
+        tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"],
+        altitude: "1.700 msnm",
+        processType: "Lavado Clásico",
+        image: "./assets/Castillo-500g-250g.jpeg",
+        variants: [
+          { size: "250g", priceCOP: 25000, label: "Bolsa 250 gramos" },
+          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos" }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -275,9 +275,9 @@ export const siteConfig = {
       },
       {
         type: "video",
-        title: "Beneficio ecológico en maquinaria de la finca",
-        category: "Beneficio",
-        videoUrl: "./assets/Galeria/Videos/Maquina01.mp4"
+        title: "Vista panorámica de la finca cafetera",
+        category: "Finca",
+        videoUrl: "./assets/Galeria/PanoramicaMute.mp4"
       },
       {
         type: "image",

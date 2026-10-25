@@ -133,18 +133,18 @@ export const translations = {
           tastingNotes: ["Miel Silvestre", "Durazno", "Jazmín", "Cítrico Dulce"]
         },
         {
-          id: "prod-castillo",
-          name: "Castillo Tradicional · Finca Seleccionada",
-          badge: "El Favorito de la Casa",
-          description: "Cuerpo redondo y equilibrado con notas clásicas reconfortantes de chocolate oscuro, panela caramelizada y avellanas tostadas.",
-          tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"]
-        },
-        {
           id: "prod-SudanRumeHoney",
           name: "Sudán Rumé · Honey",
           badge: "Micro-Lote Limitado",
           description: "Secado lentamente al sol andino con su mucílago natural dulce. Notas excepcionales a miel de caña, frutas amarillas, acidez vinosa y cuerpo aterciopelado.",
           tastingNotes: ["Miel de Caña", "Frutas Amarillas", "Cacao", "Mora silvestre"]
+        },
+        {
+          id: "prod-castillo",
+          name: "Castillo Rosario",
+          badge: "El Favorito de la Casa",
+          description: "Cuerpo redondo y equilibrado con notas clásicas reconfortantes de chocolate oscuro, panela caramelizada y avellanas tostadas.",
+          tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"]
         }
       ]
     },
@@ -347,18 +347,18 @@ export const translations = {
           tastingNotes: ["Wild Honey", "Peach", "Jasmine", "Sweet Citrus"]
         },
         {
-          id: "prod-castillo",
-          name: "Traditional Castillo · Estate Select",
-          badge: "House Favorite",
-          description: "Round, balanced body with comforting classic notes of dark artisan cacao, caramelized panela, and roasted hazelnuts.",
-          tastingNotes: ["Dark Chocolate", "Panela Cane", "Hazelnut", "Vanilla"]
-        },
-        {
           id: "prod-SudanRumeHoney",
           name: "Sudan Rume · Honey",
           badge: "Limited Micro-Lot",
           description: "Slowly sun-dried with its natural sweet mucilage. Exceptional sweetness of sugar cane, yellow fruits, winey brightness, and a velvety smooth body.",
           tastingNotes: ["Cane Honey", "Yellow Fruits", "Cacao Nibs", "Wild Blackberry"]
+        },
+        {
+          id: "prod-castillo",
+          name: "Castillo Rosario",
+          badge: "House Favorite",
+          description: "Round, balanced body with comforting classic notes of dark artisan cacao, caramelized panela, and roasted hazelnuts.",
+          tastingNotes: ["Dark Chocolate", "Panela Cane", "Hazelnut", "Vanilla"]
         }
       ]
     },
