@@ -366,11 +366,30 @@
     <div class="gallery-modal-overlay" id="gallery-modal-overlay"></div>
     <div class="gallery-modal-dialog">
       <button type="button" class="gallery-modal-close" id="gallery-modal-close" aria-label="Cerrar modal">&times;</button>
+      
+      <!-- Botones de navegación dentro del modal (Prev / Next) -->
+      <button type="button" class="gallery-modal-nav prev" id="modal-prev-btn" aria-label="Elemento anterior">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
       <div class="gallery-modal-body" id="gallery-modal-body">
         <!-- Inyección dinámica de foto o video -->
       </div>
+
+      <button type="button" class="gallery-modal-nav next" id="modal-next-btn" aria-label="Siguiente elemento">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
       <div class="gallery-modal-footer">
-        <span class="gallery-modal-title" id="gallery-modal-title"></span>
+        <div class="gallery-modal-info">
+          <span class="gallery-modal-category" id="gallery-modal-category"></span>
+          <span class="gallery-modal-title" id="gallery-modal-title"></span>
+        </div>
+        <div class="gallery-modal-counter" id="gallery-modal-counter"></div>
       </div>
     </div>
   </div>

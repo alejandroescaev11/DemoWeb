@@ -262,13 +262,6 @@ export const siteConfig = {
     subtitle: "Desliza horizontalmente para conocer el proceso artesanal de Café Orcasua: desde el fruto en rama hasta el secado en marquesinas y beneficio.",
     items: [
       {
-        type: "video",
-        title: "Beneficio ecológico en maquinaria de la finca",
-        category: "Beneficio",
-        thumbnail: "./assets/Galeria/Imagenes/Marquesina01.jpeg",
-        videoUrl: "./assets/Galeria/Videos/Maquina01.mp4"
-      },
-      {
         type: "image",
         title: "Cerezas rojas en óptimo punto de maduración",
         category: "Cosecha",
@@ -279,6 +272,12 @@ export const siteConfig = {
         title: "Recolección selectiva grano a grano en cafetal",
         category: "Cosecha",
         url: "./assets/Galeria/Imagenes/CafeRojo02.jpeg"
+      },
+      {
+        type: "video",
+        title: "Beneficio ecológico en maquinaria de la finca",
+        category: "Beneficio",
+        videoUrl: "./assets/Galeria/Videos/Maquina01.mp4"
       },
       {
         type: "image",

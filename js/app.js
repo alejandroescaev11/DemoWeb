@@ -6,6 +6,8 @@ import { translations } from './translations.js';
  */
 let currentLang = 'es';
 let currentGalleryFilter = 'all';
+let currentModalIndex = 0;
+let currentFilteredList = [];
 
 const savedLang = localStorage.getItem('orcasua_lang');
 if (savedLang === 'en' || savedLang === 'es') {
@@ -337,19 +339,31 @@ function renderGalleryItems(filter, t) {
     return item.type === filter;
   });
 
+  currentFilteredList = items;
+
   const photoBadgeText = t.mediaGallery.photoBadge || 'Foto';
   const videoBadgeText = t.mediaGallery.videoBadge || 'Video';
 
   gridEl.innerHTML = items.map((item, idx) => {
     const isVideo = item.type === 'video';
-    const imgSrc = isVideo ? item.thumbnail : item.url;
     const badgeText = isVideo ? `🎥 ${videoBadgeText}` : `📸 ${photoBadgeText}`;
     const badgeClass = isVideo ? 'video-badge' : '';
+
+    let mediaMarkup = '';
+    if (isVideo) {
+      if (item.thumbnail) {
+        mediaMarkup = `<img src="${item.thumbnail}" alt="${item.title}" loading="lazy">`;
+      } else {
+        mediaMarkup = `<video preload="metadata" muted playsinline src="${item.videoUrl}#t=0.5" class="gallery-card-thumb-video"></video>`;
+      }
+    } else {
+      mediaMarkup = `<img src="${item.url}" alt="${item.title}" loading="lazy">`;
+    }
 
     return `
       <article class="gallery-card" data-index="${idx}">
         <div class="gallery-card-media">
-          <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+          ${mediaMarkup}
           <span class="gallery-type-badge ${badgeClass}">${badgeText}</span>
           ${isVideo ? `
             <div class="gallery-play-btn" aria-hidden="true">
@@ -370,16 +384,33 @@ function renderGalleryItems(filter, t) {
   // Event listeners para abrir modal de foto o video
   gridEl.querySelectorAll('.gallery-card').forEach((card, idx) => {
     card.addEventListener('click', () => {
-      openGalleryModal(items[idx]);
+      showModalItem(idx);
     });
   });
 }
 
-function openGalleryModal(item) {
+function showModalItem(index) {
+  if (!currentFilteredList || currentFilteredList.length === 0) return;
+
+  // Navegación circular
+  if (index < 0) {
+    currentModalIndex = currentFilteredList.length - 1;
+  } else if (index >= currentFilteredList.length) {
+    currentModalIndex = 0;
+  } else {
+    currentModalIndex = index;
+  }
+
+  const item = currentFilteredList[currentModalIndex];
   const modal = document.getElementById('gallery-modal');
   const modalBody = document.getElementById('gallery-modal-body');
   const modalTitle = document.getElementById('gallery-modal-title');
+  const modalCategory = document.getElementById('gallery-modal-category');
+  const modalCounter = document.getElementById('gallery-modal-counter');
   if (!modal || !modalBody) return;
+
+  // Detener video previo
+  modalBody.innerHTML = '';
 
   if (item.type === 'video') {
     let videoUrl = item.videoUrl || '';
@@ -403,10 +434,24 @@ function openGalleryModal(item) {
   if (modalTitle) {
     modalTitle.textContent = item.title;
   }
+  if (modalCategory) {
+    modalCategory.textContent = item.category || '';
+  }
+  if (modalCounter) {
+    modalCounter.textContent = `${currentModalIndex + 1} / ${currentFilteredList.length}`;
+  }
 
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+}
+
+function nextModalItem() {
+  showModalItem(currentModalIndex + 1);
+}
+
+function prevModalItem() {
+  showModalItem(currentModalIndex - 1);
 }
 
 function closeGalleryModal() {
@@ -762,17 +807,50 @@ function setupGlobalEvents() {
     });
   }
 
-  // Cierre de modal / lightbox de galería
+  // Navegación dentro del modal / lightbox de galería
   const modalCloseBtn = document.getElementById('gallery-modal-close');
   const modalOverlay = document.getElementById('gallery-modal-overlay');
+  const modalPrevBtn = document.getElementById('modal-prev-btn');
+  const modalNextBtn = document.getElementById('modal-next-btn');
+
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeGalleryModal);
   if (modalOverlay) modalOverlay.addEventListener('click', closeGalleryModal);
+  if (modalPrevBtn) modalPrevBtn.addEventListener('click', prevModalItem);
+  if (modalNextBtn) modalNextBtn.addEventListener('click', nextModalItem);
 
-  // Cerrar modal con tecla Escape
+  // Navegación táctil / swipe en móviles para el modal
+  const modalDialog = document.querySelector('.gallery-modal-dialog');
+  if (modalDialog) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    modalDialog.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    modalDialog.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      const diffX = touchEndX - touchStartX;
+      if (Math.abs(diffX) > 45) {
+        if (diffX < 0) {
+          nextModalItem();
+        } else {
+          prevModalItem();
+        }
+      }
+    }, { passive: true });
+  }
+
+  // Teclado: Escape para cerrar modal o menú, flechas para navegar en la galería abierta
   document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('gallery-modal');
+    const isModalOpen = modal && modal.classList.contains('is-open');
+
     if (e.key === 'Escape') {
       closeGalleryModal();
       closeMenu();
+    } else if (isModalOpen && e.key === 'ArrowLeft') {
+      prevModalItem();
+    } else if (isModalOpen && e.key === 'ArrowRight') {
+      nextModalItem();
     }
   });
 
