@@ -11,8 +11,8 @@ export const translations = {
     nav: {
       story: "Historia & Escudo",
       process: "Proceso",
+      gallery: "Galería",
       products: "Nuestra Cosecha",
-      tour: "Tour por la Finca",
       faqs: "Preguntas",
       mobileCta: "Ver Productos & Pedir"
     },
@@ -27,7 +27,7 @@ export const translations = {
       title: "El alma de la montaña andina en cada taza.",
       subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
       primaryCta: "Ver Productos & Pedir",
-      secondaryCta: "Reservar Tour en Finca",
+      secondaryCta: "Galería del Proceso",
       caption: "Escudo Oficial · Café Orcasua Especial",
       pills: [
         { icon: "mountain", text: "1.700 msnm" },
@@ -126,8 +126,8 @@ export const translations = {
       ],
       items: [
         {
-          id: "prod-bourbon",
-          name: "Bourbon Rosado · Edición Especial",
+          id: "prod-SudanRumeLavado",
+          name: "Sudán Rumé · Lavado",
           badge: "Más Exclusivo",
           description: "Una variedad exótica de perfil floral complejo, acidez sedosa y postgusto prolongado a miel silvestre y durazno.",
           tastingNotes: ["Miel Silvestre", "Durazno", "Jazmín", "Cítrico Dulce"]
@@ -140,11 +140,11 @@ export const translations = {
           tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"]
         },
         {
-          id: "prod-honey",
-          name: "Geisha Honey · Micro-Lote Reserva",
+          id: "prod-SudanRumeHoney",
+          name: "Sudán Rumé · Honey",
           badge: "Micro-Lote Limitado",
-          description: "Secado con su mucílago natural al sol. Dulzura intensa de frutos rojos maduros, acidez vinosa y textura cremosa aterciopelada.",
-          tastingNotes: ["Frutos Rojos", "Caña de Azúcar", "Cacao Nibs", "Mora silvestre"]
+          description: "Secado lentamente al sol andino con su mucílago natural dulce. Notas excepcionales a miel de caña, frutas amarillas, acidez vinosa y cuerpo aterciopelado.",
+          tastingNotes: ["Miel de Caña", "Frutas Amarillas", "Cacao", "Mora silvestre"]
         }
       ]
     },
@@ -152,7 +152,7 @@ export const translations = {
       tag: "EXPERIENCIA VIVENCIAL",
       badge: "Abierto al Público con Reserva",
       title: "Tour Cafetero: La Ruta del Grano a la Taza",
-      subtitle: "Visita nuestra finca en Marsella, Risaralda. Camina entre cafetales centenarios, aprende a catar como un barista profesional y disfruta de la gastronomía campesina.",
+      subtitle: "Visita nuestra finca en Marsella, Risaralda.",
       durationLabel: "Duración",
       duration: "4 Horas de Inmersión",
       scheduleLabel: "Días Disponibles",
@@ -160,20 +160,18 @@ export const translations = {
       includesTitle: "La experiencia incluye:",
       priceUnit: "por persona",
       bookBtn: "Reservar Cupo",
-      includes: [
-        "Recorrido guiado por el bosque de niebla y los cafetales",
-        "Canasto tradicional y taller práctico de recolección de cerezas",
-        "Visita a la estación de beneficio ecológico y secado",
-        "Laboratorio de catación sensorial guiada con barista certificado",
-        "Almuerzo campesino tradicional y degustación de café ilimitada",
-        "Obsequio: Bolsa de 250g de café recién tostado de la finca"
-      ],
-      whatsappMsg: "¡Hola Café Orcasua! Me gustaría recibir información y consultar disponibilidad para reservar el Tour Cafetero 'Ruta del Grano a la Taza' para [indica número de personas] el día [indica fecha tentativa]. ¡Gracias!"
+      includes: [],
+      whatsappMsg: ""
     },
     mediaGallery: {
-      tag: "EN IMÁGENES",
-      title: "La vida cotidiana en la montaña.",
-      subtitle: "Rincones de nuestra finca, la arquitectura tradicional de bahareque y la calidez de nuestra gente."
+      tag: "PROCESO & ORIGEN",
+      title: "Galería del Proceso de Producción",
+      subtitle: "Imágenes y videos de la cosecha, el beneficio ecológico y la vida en nuestra finca en Marsella.",
+      filterAll: "Todos",
+      filterImages: "📸 Fotografías",
+      filterVideos: "🎥 Videos",
+      videoBadge: "Video",
+      photoBadge: "Foto"
     },
     faqs: {
       tag: "DUDAS FRECUENTES",
@@ -202,14 +200,14 @@ export const translations = {
       locationTitle: "Ubicación & Contacto",
       locationText: "Pinares de Marsella, Marsella, Risaralda",
       shippingText: "Envíos a toda Colombia y al exterior",
-      orderText: "Pedidos y reservas vía WhatsApp",
+      orderText: "Pedidos directos vía WhatsApp",
       socialsTitle: "Redes Sociales",
       copy: "© 2026 Café Orcasua. Cosechado en las montañas de Colombia.",
       madeFor: "By EscoTools®"
     },
     floatingWhatsapp: {
       tooltip: "¿Deseas pedir o tienes dudas? Escríbenos",
-      chatGreeting: "¡Hola Café Orcasua! Estoy visitando su sitio web y me gustaría recibir información."
+      chatGreeting: "¡Hola Café Orcasua! Estoy visitando su sitio web y me gustaría recibir información sobre su café."
     },
     orderMessage: {
       greeting: "¡Hola Café Orcasua! ☕",
@@ -226,8 +224,8 @@ export const translations = {
     nav: {
       story: "Story & Crest",
       process: "Process",
+      gallery: "Gallery",
       products: "Our Harvest",
-      tour: "Farm Tour",
       faqs: "FAQs",
       mobileCta: "Explore Products & Order"
     },
@@ -242,7 +240,7 @@ export const translations = {
       title: "The soul of the Andean mountains in every cup.",
       subtitle: "Patiently shade-grown at 1,700 meters above sea level in Pinares de Marsella. Handpicked by local coffee-growing families and artisanally roasted at origin.",
       primaryCta: "Explore Products & Order",
-      secondaryCta: "Book Farm Tour",
+      secondaryCta: "Process Gallery",
       caption: "Official Crest · Café Orcasua Specialty",
       pills: [
         { icon: "mountain", text: "1,700 m.a.s.l." },
@@ -341,10 +339,10 @@ export const translations = {
       ],
       items: [
         {
-          id: "prod-bourbon",
-          name: "Pink Bourbon · Special Edition",
+          id: "prod-SudanRumeLavado",
+          name: "Sudan Rume · Washed",
           badge: "Most Exclusive",
-          description: "An exotic variety celebrated for its complex floral notes, silky body, and a prolonged lingering finish of wild honey and peach.",
+          description: "An exotic variety celebrated for its complex floral notes, silky acidity, and prolonged finish of wild honey and peach.",
           tastingNotes: ["Wild Honey", "Peach", "Jasmine", "Sweet Citrus"]
         },
         {
@@ -355,11 +353,11 @@ export const translations = {
           tastingNotes: ["Dark Chocolate", "Panela Cane", "Hazelnut", "Vanilla"]
         },
         {
-          id: "prod-honey",
-          name: "Geisha Honey · Reserve Micro-Lot",
+          id: "prod-SudanRumeHoney",
+          name: "Sudan Rume · Honey",
           badge: "Limited Micro-Lot",
-          description: "Slowly sun-dried with its natural sweet mucilage. Intense sweetness of ripe berry fruits, winey brightness, and a creamy mouthfeel.",
-          tastingNotes: ["Red Berries", "Sugar Cane", "Cacao Nibs", "Wild Blackberry"]
+          description: "Slowly sun-dried with its natural sweet mucilage. Exceptional sweetness of sugar cane, yellow fruits, winey brightness, and a velvety smooth body.",
+          tastingNotes: ["Cane Honey", "Yellow Fruits", "Cacao Nibs", "Wild Blackberry"]
         }
       ]
     },
@@ -367,7 +365,7 @@ export const translations = {
       tag: "LIVING EXPERIENCE",
       badge: "Open to Visitors with Booking",
       title: "Coffee Farm Tour: The Bean-to-Cup Journey",
-      subtitle: "Visit our estate in Marsella, Risaralda. Walk through heritage coffee hills, master sensory tasting with a certified barista, and enjoy authentic country cooking.",
+      subtitle: "Visit our estate in Marsella, Risaralda.",
       durationLabel: "Duration",
       duration: "4-Hour Immersion",
       scheduleLabel: "Available Days",
@@ -375,20 +373,18 @@ export const translations = {
       includesTitle: "The experience includes:",
       priceUnit: "per person",
       bookBtn: "Book Tour",
-      includes: [
-        "Guided hike through cloud forests and century-old coffee hills",
-        "Traditional harvesting basket and hands-on cherry picking workshop",
-        "Visit to the eco-friendly washing station and sun-drying marquesinas",
-        "Sensory tasting & cupping lab with a certified specialty barista",
-        "Authentic traditional country lunch and unlimited estate coffee",
-        "Gift: 250g bag of freshly roasted single-origin estate coffee"
-      ],
-      whatsappMsg: "Hello Café Orcasua! I would like to inquire about availability and book the Coffee Tour 'From Bean to Cup' for [number of guests] on [tentative date]. Thank you!"
+      includes: [],
+      whatsappMsg: ""
     },
     mediaGallery: {
-      tag: "IN PICTURES",
-      title: "Everyday life in the mountains.",
-      subtitle: "Glimpses of our estate, traditional bahareque architecture, and the warmth of our coffee farming family."
+      tag: "PROCESS & ORIGEN",
+      title: "Production Process Gallery",
+      subtitle: "Images and videos of coffee harvesting, eco-friendly washing, and life on our farm in Marsella.",
+      filterAll: "All",
+      filterImages: "📸 Photos",
+      filterVideos: "🎥 Videos",
+      videoBadge: "Video",
+      photoBadge: "Photo"
     },
     faqs: {
       tag: "FREQUENT QUESTIONS",
@@ -417,14 +413,14 @@ export const translations = {
       locationTitle: "Location & Contact",
       locationText: "Pinares de Marsella, Marsella, Risaralda",
       shippingText: "Domestic & international delivery",
-      orderText: "Orders & bookings via WhatsApp",
+      orderText: "Direct orders via WhatsApp",
       socialsTitle: "Follow Us",
       copy: "© 2026 Café Orcasua. Harvested in the Colombian Andes.",
       madeFor: "By EscoTools®"
     },
     floatingWhatsapp: {
       tooltip: "Questions or orders? Chat with us",
-      chatGreeting: "Hello Café Orcasua! I am visiting your website and would love more information."
+      chatGreeting: "Hello Café Orcasua! I am visiting your website and would love more information about your coffee."
     },
     orderMessage: {
       greeting: "Hello Café Orcasua! ☕",

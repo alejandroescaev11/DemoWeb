@@ -2,10 +2,11 @@ import { siteConfig } from './config.js';
 import { translations } from './translations.js';
 
 /**
- * ESTADO GLOBAL DE IDIOMA
- * 'es' = Español (por defecto) | 'en' = English
+ * ESTADO GLOBAL DE IDIOMA Y FILTROS
  */
 let currentLang = 'es';
+let currentGalleryFilter = 'all';
+
 const savedLang = localStorage.getItem('orcasua_lang');
 if (savedLang === 'en' || savedLang === 'es') {
   currentLang = savedLang;
@@ -65,9 +66,9 @@ function renderAll(t) {
   renderHero(t);
   renderStory(t);
   renderProcess(t);
+  renderGallery(t);
   renderProducts(t);
   renderServicesTour(t);
-  renderGallery(t);
   renderFAQs(t);
   renderFooter(t);
 }
@@ -117,28 +118,28 @@ function renderBrandAndNav(t) {
   // Enlaces de navegación de escritorio
   const storyLink = document.getElementById('nav-link-story');
   const processLink = document.getElementById('nav-link-process');
+  const galleryLink = document.getElementById('nav-link-gallery');
   const productsLink = document.getElementById('nav-link-products');
-  const tourLink = document.getElementById('nav-link-tour');
   const faqsLink = document.getElementById('nav-link-faqs');
 
   if (storyLink) storyLink.textContent = t.nav.story;
   if (processLink) processLink.textContent = t.nav.process;
+  if (galleryLink) galleryLink.textContent = t.nav.gallery;
   if (productsLink) productsLink.textContent = t.nav.products;
-  if (tourLink) tourLink.textContent = t.nav.tour;
   if (faqsLink) faqsLink.textContent = t.nav.faqs;
 
   // Enlaces de navegación móvil
   const mobStory = document.getElementById('mob-link-story');
   const mobProcess = document.getElementById('mob-link-process');
+  const mobGallery = document.getElementById('mob-link-gallery');
   const mobProducts = document.getElementById('mob-link-products');
-  const mobTour = document.getElementById('mob-link-tour');
   const mobFaqs = document.getElementById('mob-link-faqs');
   const mobCta = document.getElementById('mobile-cta-btn');
 
   if (mobStory) mobStory.textContent = t.nav.story;
   if (mobProcess) mobProcess.textContent = t.nav.process;
+  if (mobGallery) mobGallery.textContent = t.nav.gallery;
   if (mobProducts) mobProducts.textContent = t.nav.products;
-  if (mobTour) mobTour.textContent = t.nav.tour;
   if (mobFaqs) mobFaqs.textContent = t.nav.faqs;
   if (mobCta) mobCta.textContent = t.nav.mobileCta;
 
@@ -178,7 +179,7 @@ function renderHero(t) {
 
   if (heroSecondaryCta) {
     heroSecondaryCta.textContent = t.hero.secondaryCta;
-    heroSecondaryCta.setAttribute('href', siteConfig.hero.secondaryCtaTarget);
+    heroSecondaryCta.setAttribute('href', siteConfig.hero.secondaryCtaTarget || '#galeria');
   }
 
   if (heroImg) {
@@ -295,7 +296,131 @@ function renderProcess(t) {
 }
 
 /**
- * 6. PRODUCTOS Y PEDIDO DIRECTO
+ * 6. GALERÍA MULTIMEDIA DEL PROCESO DE PRODUCCIÓN
+ */
+function renderGallery(t) {
+  const gallSec = document.getElementById('galeria');
+  if (!siteConfig.mediaGallery || !siteConfig.mediaGallery.enabled) {
+    if (gallSec) gallSec.style.display = 'none';
+    return;
+  }
+  if (gallSec) gallSec.style.display = '';
+
+  const tagEl = document.getElementById('gallery-tag');
+  const titleEl = document.getElementById('gallery-title');
+  const subEl = document.getElementById('gallery-subtitle');
+
+  if (tagEl) tagEl.textContent = t.mediaGallery.tag;
+  if (titleEl) titleEl.textContent = t.mediaGallery.title;
+  if (subEl) subEl.textContent = t.mediaGallery.subtitle;
+
+  // Actualizar textos de los botones de filtro
+  const filterAll = document.getElementById('gallery-filter-all');
+  const filterImages = document.getElementById('gallery-filter-images');
+  const filterVideos = document.getElementById('gallery-filter-videos');
+  if (filterAll) filterAll.textContent = t.mediaGallery.filterAll || 'Todos';
+  if (filterImages) filterImages.textContent = t.mediaGallery.filterImages || '📸 Fotografías';
+  if (filterVideos) filterVideos.textContent = t.mediaGallery.filterVideos || '🎥 Videos';
+
+  renderGalleryItems(currentGalleryFilter, t);
+}
+
+function renderGalleryItems(filter, t) {
+  const gridEl = document.getElementById('gallery-grid');
+  if (!gridEl || !siteConfig.mediaGallery || !siteConfig.mediaGallery.items) return;
+
+  const items = siteConfig.mediaGallery.items.filter(item => {
+    if (filter === 'all') return true;
+    return item.type === filter;
+  });
+
+  const photoBadgeText = t.mediaGallery.photoBadge || 'Foto';
+  const videoBadgeText = t.mediaGallery.videoBadge || 'Video';
+
+  gridEl.innerHTML = items.map((item, idx) => {
+    const isVideo = item.type === 'video';
+    const imgSrc = isVideo ? item.thumbnail : item.url;
+    const badgeText = isVideo ? `🎥 ${videoBadgeText}` : `📸 ${photoBadgeText}`;
+    const badgeClass = isVideo ? 'video-badge' : '';
+
+    return `
+      <article class="gallery-card" data-index="${idx}">
+        <div class="gallery-card-media">
+          <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+          <span class="gallery-type-badge ${badgeClass}">${badgeText}</span>
+          ${isVideo ? `
+            <div class="gallery-play-btn" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 4 20 12 6 20 6 4"></polygon>
+              </svg>
+            </div>
+          ` : ''}
+        </div>
+        <div class="gallery-card-body">
+          ${item.category ? `<span class="gallery-card-category">${item.category}</span>` : ''}
+          <h3 class="gallery-card-title">${item.title}</h3>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  // Event listeners para abrir modal de foto o video
+  gridEl.querySelectorAll('.gallery-card').forEach((card, idx) => {
+    card.addEventListener('click', () => {
+      openGalleryModal(items[idx]);
+    });
+  });
+}
+
+function openGalleryModal(item) {
+  const modal = document.getElementById('gallery-modal');
+  const modalBody = document.getElementById('gallery-modal-body');
+  const modalTitle = document.getElementById('gallery-modal-title');
+  if (!modal || !modalBody) return;
+
+  if (item.type === 'video') {
+    let videoUrl = item.videoUrl || '';
+    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+      const glue = videoUrl.includes('?') ? '&' : '?';
+      videoUrl += `${glue}autoplay=1&rel=0`;
+      modalBody.innerHTML = `
+        <iframe src="${videoUrl}" title="${item.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      `;
+    } else {
+      modalBody.innerHTML = `
+        <video controls autoplay playsinline src="${videoUrl}"></video>
+      `;
+    }
+  } else {
+    modalBody.innerHTML = `
+      <img src="${item.url}" alt="${item.title}">
+    `;
+  }
+
+  if (modalTitle) {
+    modalTitle.textContent = item.title;
+  }
+
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGalleryModal() {
+  const modal = document.getElementById('gallery-modal');
+  const modalBody = document.getElementById('gallery-modal-body');
+  if (!modal) return;
+
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (modalBody) {
+    modalBody.innerHTML = '';
+  }
+}
+
+/**
+ * 7. PRODUCTOS Y PEDIDO DIRECTO
  */
 function formatCOP(amount) {
   return new Intl.NumberFormat('es-CO', {
@@ -446,14 +571,16 @@ function handleProductOrder(productId) {
 }
 
 /**
- * 7. SECCIÓN MODULAR: TOUR POR LA FINCA / SERVICIO PERSONALIZADO
+ * 8. SECCIÓN MODULAR: TOUR POR LA FINCA (SI ESTÁ ACTIVA)
  */
 function renderServicesTour(t) {
   const tourSec = document.getElementById('tour-finca');
+  if (!tourSec) return;
   if (!siteConfig.services || !siteConfig.services.enabled) {
-    if (tourSec) tourSec.style.display = 'none';
+    tourSec.style.display = 'none';
     return;
   }
+  tourSec.style.display = '';
 
   const s = t.services;
   const badgeEl = document.getElementById('tour-badge');
@@ -480,7 +607,7 @@ function renderServicesTour(t) {
   if (scheduleEl) scheduleEl.textContent = s.schedule;
   if (includesTitleEl) includesTitleEl.textContent = s.includesTitle;
 
-  if (includesListEl && s.includes) {
+  if (includesListEl && s.includes && s.includes.length > 0) {
     includesListEl.innerHTML = s.includes.map(inc => `
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -503,34 +630,6 @@ function renderServicesTour(t) {
   if (bookBtn) {
     const waUrl = `https://wa.me/${siteConfig.brand.whatsappNumber}?text=${encodeURIComponent(s.whatsappMsg)}`;
     bookBtn.setAttribute('href', waUrl);
-  }
-}
-
-/**
- * 8. GALERÍA
- */
-function renderGallery(t) {
-  const gallSec = document.getElementById('galeria');
-  if (!siteConfig.mediaGallery.enabled) {
-    if (gallSec) gallSec.style.display = 'none';
-    return;
-  }
-
-  const tagEl = document.getElementById('gallery-tag');
-  const titleEl = document.getElementById('gallery-title');
-  const subEl = document.getElementById('gallery-subtitle');
-  const gridEl = document.getElementById('gallery-grid');
-
-  if (tagEl) tagEl.textContent = t.mediaGallery.tag;
-  if (titleEl) titleEl.textContent = t.mediaGallery.title;
-  if (subEl) subEl.textContent = t.mediaGallery.subtitle;
-
-  if (gridEl && siteConfig.mediaGallery.items) {
-    gridEl.innerHTML = siteConfig.mediaGallery.items.map(item => `
-      <div class="gallery-item">
-        <img src="${item.url}" alt="${item.title}" loading="lazy">
-      </div>
-    `).join('');
   }
 }
 
@@ -633,6 +732,31 @@ function setupGlobalEvents() {
     });
   });
 
+  // Filtros de la Galería Multimedia
+  document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+      e.currentTarget.classList.add('active');
+      currentGalleryFilter = e.currentTarget.dataset.filter || 'all';
+      const t = translations[currentLang] || translations.es;
+      renderGalleryItems(currentGalleryFilter, t);
+    });
+  });
+
+  // Cierre de modal / lightbox de galería
+  const modalCloseBtn = document.getElementById('gallery-modal-close');
+  const modalOverlay = document.getElementById('gallery-modal-overlay');
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeGalleryModal);
+  if (modalOverlay) modalOverlay.addEventListener('click', closeGalleryModal);
+
+  // Cerrar modal con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeGalleryModal();
+      closeMenu();
+    }
+  });
+
   // Menú hamburguesa móvil
   const hamburgerBtn = document.getElementById('nav-hamburger-btn');
   const menuOverlay = document.getElementById('mobile-menu-overlay');
@@ -673,11 +797,6 @@ function setupGlobalEvents() {
       }
     });
 
-    // Cerrar al presionar tecla Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-    });
-
     // Cerrar si la pantalla se redimensiona a escritorio
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 840) {
@@ -694,7 +813,6 @@ function setupGlobalEvents() {
       const targetEl = document.querySelector(targetId);
       if (targetEl) {
         e.preventDefault();
-        // Si el menú móvil está abierto, cerrarlo
         closeMenu();
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }

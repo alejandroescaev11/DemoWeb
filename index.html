@@ -33,8 +33,8 @@
         <ul class="nav-links">
           <li><a href="#historia" class="nav-link" id="nav-link-story">Historia</a></li>
           <li><a href="#proceso" class="nav-link" id="nav-link-process">Proceso</a></li>
+          <li><a href="#galeria" class="nav-link" id="nav-link-gallery">Galería</a></li>
           <li><a href="#productos" class="nav-link" id="nav-link-products">Nuestra Cosecha</a></li>
-          <li><a href="#tour-finca" class="nav-link" id="nav-link-tour">Tour por la Finca</a></li>
           <li><a href="#faqs" class="nav-link" id="nav-link-faqs">Preguntas</a></li>
         </ul>
       </nav>
@@ -62,8 +62,8 @@
         <ul class="mobile-nav-links">
           <li><a href="#historia" class="mobile-nav-link" id="mob-link-story">Historia & Escudo</a></li>
           <li><a href="#proceso" class="mobile-nav-link" id="mob-link-process">Proceso</a></li>
+          <li><a href="#galeria" class="mobile-nav-link" id="mob-link-gallery">Galería del Proceso</a></li>
           <li><a href="#productos" class="mobile-nav-link" id="mob-link-products">Nuestra Cosecha</a></li>
-          <li><a href="#tour-finca" class="mobile-nav-link" id="mob-link-tour">Tour por la Finca</a></li>
           <li><a href="#faqs" class="mobile-nav-link" id="mob-link-faqs">Preguntas Frecuentes</a></li>
         </ul>
 
@@ -106,7 +106,7 @@
             </p>
             <div class="hero-cta-group">
               <a href="#productos" class="btn btn-primary" id="hero-primary-cta">Ver Productos & Pedir</a>
-              <a href="#tour-finca" class="btn btn-outline" id="hero-secondary-cta">Reservar Tour en Finca</a>
+              <a href="#galeria" class="btn btn-outline" id="hero-secondary-cta">Galería del Proceso</a>
             </div>
             <div class="hero-features-list" id="hero-features">
               <!-- Renderizado dinámico de pills -->
@@ -184,8 +184,8 @@
       </div>
     </section>
 
-    <!-- 5. SECCIÓN MODULAR DE SERVICIO: TOUR POR LA FINCA -->
-    <section class="section-padding tour-section" id="tour-finca">
+    <!-- 5. SECCIÓN MODULAR DE SERVICIO: TOUR POR LA FINCA (DESACTIVADA) -->
+    <section class="section-padding tour-section" id="tour-finca" style="display: none;">
       <div class="container">
         <div class="tour-card">
           <div class="tour-layout">
@@ -251,18 +251,25 @@
       </div>
     </section>
 
-    <!-- 6. GALERÍA EN IMÁGENES -->
-    <section class="section-padding" id="galeria">
+    <!-- 6. GALERÍA MULTIMEDIA DEL PROCESO -->
+    <section class="section-padding gallery-section" id="galeria">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag" id="gallery-tag">EN IMÁGENES</span>
-          <h2 class="section-title" id="gallery-title">La vida cotidiana en la montaña.</h2>
+          <span class="section-tag" id="gallery-tag">PROCESO & ORIGEN</span>
+          <h2 class="section-title" id="gallery-title">Galería del Proceso de Producción</h2>
           <p class="section-subtitle" id="gallery-subtitle">
-            Rincones de nuestra finca, la arquitectura tradicional de bahareque y la calidez de nuestra gente.
+            Imágenes y videos de la cosecha, el beneficio ecológico y la vida en nuestra finca en Marsella.
           </p>
+
+          <!-- Filtro de Galería -->
+          <div class="gallery-filters" id="gallery-filters">
+            <button type="button" class="gallery-filter-btn active" data-filter="all" id="gallery-filter-all">Todos</button>
+            <button type="button" class="gallery-filter-btn" data-filter="image" id="gallery-filter-images">📸 Fotografías</button>
+            <button type="button" class="gallery-filter-btn" data-filter="video" id="gallery-filter-videos">🎥 Videos</button>
+          </div>
         </div>
         <div class="gallery-grid" id="gallery-grid">
-          <!-- Renderizado dinámico de fotos -->
+          <!-- Renderizado dinámico de fotos y videos -->
         </div>
       </div>
     </section>
@@ -305,7 +312,7 @@
           <ul class="footer-links">
             <li id="footer-location">Pinares de Marsella, Marsella, Risaralda</li>
             <li id="footer-shipping">Envíos a toda Colombia</li>
-            <li id="footer-orders">Pedidos y reservas vía WhatsApp</li>
+            <li id="footer-orders">Pedidos directos vía WhatsApp</li>
           </ul>
         </div>
 
@@ -331,6 +338,20 @@
     </svg>
     <span class="floating-whatsapp-tooltip" id="floating-whatsapp-tooltip">¿Deseas pedir o tienes dudas? Escríbenos</span>
   </a>
+
+  <!-- MODAL / LIGHTBOX DE FOTOS Y VIDEOS DE GALERÍA -->
+  <div class="gallery-modal" id="gallery-modal" aria-hidden="true">
+    <div class="gallery-modal-overlay" id="gallery-modal-overlay"></div>
+    <div class="gallery-modal-dialog">
+      <button type="button" class="gallery-modal-close" id="gallery-modal-close" aria-label="Cerrar modal">&times;</button>
+      <div class="gallery-modal-body" id="gallery-modal-body">
+        <!-- Inyección dinámica de foto o video -->
+      </div>
+      <div class="gallery-modal-footer">
+        <span class="gallery-modal-title" id="gallery-modal-title"></span>
+      </div>
+    </div>
+  </div>
 
   <!-- Script modular de configuración y lógica -->
   <script type="module" src="./js/app.js"></script>

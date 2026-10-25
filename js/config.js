@@ -64,8 +64,8 @@ export const siteConfig = {
     subtitle: "Cultivado con paciencia bajo sombra a 1.700 metros de altitud en Pinares de Marsella. Cosechado a mano por familias caficultoras y tostado artesanalmente en origen.",
     primaryCtaText: "Ver Productos & Pedir",
     primaryCtaTarget: "#productos",
-    secondaryCtaText: "Reservar Tour en Finca",
-    secondaryCtaTarget: "#tour-finca",
+    secondaryCtaText: "Galería del Proceso",
+    secondaryCtaTarget: "#galeria",
     heroImage: "./assets/logo.jpg",
     heroLandscapeImage: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80",
     imageCaption: "Escudo Oficial · Café Orcasua Especial",
@@ -165,17 +165,17 @@ export const siteConfig = {
     subtitle: "Envíos directos a toda Colombia. Tostado bajo pedido para que lo recibas en su pico máximo de aroma y frescura.",
     items: [
       {
-        id: "prod-bourbon",
-        name: "Bourbon Rosado · Edición Especial",
+        id: "prod-SudanRumeLavado",
+        name: "Sudán Rumé · Lavado",
         badge: "Más Exclusivo",
         description: "Una variedad exótica de perfil floral complejo, acidez sedosa y postgusto prolongado a miel silvestre y durazno.",
         tastingNotes: ["Miel Silvestre", "Durazno", "Jazmín", "Cítrico Dulce"],
-        altitude: "1.850 msnm",
+        altitude: "1.700 msnm",
         processType: "Lavado Extendido",
-        image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80",
+        image: "./assets/SudanRumeLavado-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 38000, label: "Bolsa 250 gramos" },
-          { size: "500g", priceCOP: 70000, label: "Bolsa 500 gramos" }
+          { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos" },
+          { size: "500g", priceCOP: 90000, label: "Bolsa 500 gramos" }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -190,13 +190,12 @@ export const siteConfig = {
         badge: "El Favorito de la Casa",
         description: "Cuerpo redondo y equilibrado con notas clásicas reconfortantes de chocolate oscuro, panela caramelizada y avellanas tostadas.",
         tastingNotes: ["Chocolate Oscuro", "Panela", "Avellana", "Vainilla"],
-        altitude: "1.750 msnm",
+        altitude: "1.700 msnm",
         processType: "Lavado Clásico",
-        image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+        image: "./assets/Castillo-500g-250g.jpeg",
         variants: [
           { size: "250g", priceCOP: 26000, label: "Bolsa 250 gramos" },
-          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos" },
-          { size: "1000g", priceCOP: 90000, label: "Bolsa 1 Kilo" }
+          { size: "500g", priceCOP: 48000, label: "Bolsa 500 gramos" }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -206,17 +205,17 @@ export const siteConfig = {
         ]
       },
       {
-        id: "prod-honey",
-        name: "Geisha Honey · Micro-Lote Reserva",
+        id: "prod-SudanRumeHoney",
+        name: "Sudán Rumé · Honey",
         badge: "Micro-Lote Limitado",
-        description: "Secado con su mucílago natural al sol. Dulzura intensa de frutos rojos maduros, acidez vinosa y textura cremosa aterciopelada.",
-        tastingNotes: ["Frutos Rojos", "Caña de Azúcar", "Cacao Nibs", "Mora silvestre"],
-        altitude: "1.890 msnm",
+        description: "Secado lentamente al sol andino con su mucílago natural dulce. Notas excepcionales a miel de caña, frutas amarillas, acidez vinosa y cuerpo aterciopelado.",
+        tastingNotes: ["Miel de Caña", "Frutas Amarillas", "Cacao", "Mora silvestre"],
+        altitude: "1.700 msnm",
         processType: "Proceso Honey Amarillo",
-        image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80",
+        image: "./assets/SudanRumeHoney-500g.jpeg",
         variants: [
-          { size: "250g", priceCOP: 45000, label: "Bolsa 250 gramos" },
-          { size: "500g", priceCOP: 84000, label: "Bolsa 500 gramos" }
+          { size: "250g", priceCOP: 48000, label: "Bolsa 250 gramos" },
+          { size: "500g", priceCOP: 92000, label: "Bolsa 500 gramos" }
         ],
         grindOptions: [
           "En Grano (Recomendado)",
@@ -228,10 +227,9 @@ export const siteConfig = {
     ]
   },
 
-  // 7. SECCIÓN MODULAR DE SERVICIOS ADICIONALES (Ej: Tour por la Finca / Catas / Talleres)
-  // Permite al emprendedor mostrar experiencias turísticas o servicios personalizados.
+  // 7. SECCIÓN MODULAR DE SERVICIOS ADICIONALES (TOUR DESACTIVADO TEMPORALMENTE)
   services: {
-    enabled: true,
+    enabled: false,
     id: "tour-finca",
     tag: "EXPERIENCIA VIVENCIAL",
     badge: "Abierto al Público con Reserva",
@@ -255,38 +253,55 @@ export const siteConfig = {
       "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80"
     ],
-    whatsappBookingMessage: "¡Hola Café Orcasua! Me gustaría recibir información y consultar disponibilidad para reservar el Tour Cafetero 'Ruta del Grano a la Taza' para [indica número de personas] el día [indica fecha tentativa]. ¡Gracias!"
+    whatsappBookingMessage: "¡Hola Café Orcasua! Me gustaría recibir información del Tour Cafetero. ¡Gracias!"
   },
 
-  // 8. GALERÍA MULTIMEDIA Y VIDEO
+  // 8. GALERÍA MULTIMEDIA DEL PROCESO DE PRODUCCIÓN (FOTOS Y VIDEOS)
   mediaGallery: {
     enabled: true,
-    tag: "EN IMÁGENES",
-    title: "La vida cotidiana en la montaña.",
-    subtitle: "Rincones de nuestra finca, la arquitectura tradicional de bahareque y la calidez de nuestra gente.",
+    tag: "PROCESO & ORIGEN",
+    title: "Galería del Proceso de Producción",
+    subtitle: "Imágenes y videos de la cosecha, el beneficio ecológico y la vida en nuestra finca en Marsella.",
     items: [
       {
         type: "image",
-        title: "Paisaje Cafetero al Atardecer",
-        url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+        title: "Recolección selectiva grano a grano a 1.700 msnm",
+        category: "Cosecha",
+        url: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        type: "video",
+        title: "Despulpado y Fermentación Controlada en Tanques Limpios",
+        category: "Beneficio",
+        thumbnail: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80",
+        videoUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
       },
       {
         type: "image",
-        title: "Floración blanca del cafetal",
-        url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+        title: "Secado lento al sol andino en marquesinas elevadas",
+        category: "Secado",
+        url: "https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        type: "video",
+        title: "Tueste medio de origen en pequeños lotes artesanales",
+        category: "Tueste",
+        thumbnail: "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?auto=format&fit=crop&w=1200&q=80",
+        videoUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
       },
       {
         type: "image",
-        title: "Cerezas en punto óptimo de cosecha",
-        url: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?auto=format&fit=crop&w=800&q=80"
+        title: "Floración blanca del cafetal perfumando las laderas",
+        category: "Finca",
+        url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80"
       },
       {
         type: "image",
-        title: "Preparación artesanal en Chemex",
-        url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+        title: "Preparación artesanal y extracción de notas dulces",
+        category: "En Taza",
+        url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
       }
-    ],
-    videoEmbedUrl: "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" // Reemplazable con video real de YouTube/Vimeo
+    ]
   },
 
   // 9. PREGUNTAS FRECUENTES (ENVÍOS, GARANTÍAS Y PREPARACIÓN)
